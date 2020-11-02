@@ -19,7 +19,11 @@
 
 ## Versioning
 
+Version 1.1 - Initial content
+
 ## Table of Contents
+
+
 
 ## Authors
 
@@ -27,7 +31,7 @@
 
 ## Code Naming Conventions
 
-Naming convention using hyphens (-) to seperate words:
+Naming convention using hyphens (-) to separate words:
 Example "section-content"
 
 ## Git Commit Naming Conventions
