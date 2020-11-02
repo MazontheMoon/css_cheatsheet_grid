@@ -1,3 +1,16 @@
+/*===========
+Import fonts
+=============*/
+
+/*========================
+Declare variables for page
+=========================*/
+:root {
+  /*color scheme*/
+
+  /*fonts*/
+}
+
 /*======================================
 Back to Basics - reset browser defaults
 =======================================*/
@@ -6,7 +19,7 @@ body {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-  font-size: 12px; /*mobile-view first*/
+  font-size: 12px; /*mobile first design - change to 16px for views >1024px*/
 }
 
 /*set global styles*/
@@ -17,32 +30,212 @@ body * {
   margin: 0;
 }
 
-/*========================
-Declare variables for page
-=========================*/
-:root {
-  /*font and text*/
+/*====================
+Text and Font Styling
+=====================*/
 
+/*reset default font - never shall Time New Roman be seen again!*/
+
+h1,
+h3,
+h5,
+p,
+li {
+  font-family: Helvetica, Arial, sans-serif;
 }
 
+
+
+/*================
+Layout
+=================*/
+body {
+  max-width 100%;
+  border: solid 3px red;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "nav"
+    "content"
+    "footer";
+  grid-gap: 0;
+}
+
+/*================
+Header and Title
+=================*/
+
+#top-header {
+  grid-area: header;
+  /* to test layout placement */
+  border: solid 3px green;
+}
+
+#top-header h1 {
+  text-align: center;
+  /* to test layout placement
+  border: solid 3px blue; */
+}
+
+/*================
+Nav Menu Bar
+=================*/
+
+nav {
+  grid-area: nav;
+  /* to test layout placement */
+  border: solid 3px orange;
+}
+
+#nav-bar {
+  list-style: none;
+  padding: 0;
+  /* to test layout placement
+  border: solid 3px cyan; */
+}
+
+.nav-bar-button {
+  /* to test layout placement
+  border: solid 3px magenta; */
+}
+
+#nav-bar-child {
+  list-style: none;
+  padding: 0;
+  /* to test layout placement
+  border: solid 3px navy; */
+}
+
+.nav-bar-button-child {
+  /* to test layout placement
+  border: solid 3px yellow; */
+}
+
+/*================
+Section Styling
+=================*/
+
+main {
+  grid-area: content;
+  padding: 0.5rem;
+  /* to test layout placement */
+  border: solid 3px black;
+}
+
+#intro-text {
+  /* to test layout placement */
+  border: solid 3px purple;
+}
+
+.section-container {
+  margin: 0.6rem;
+  /* to test layout placement */
+  border: solid 3px gray;
+}
+
+.section-header {
+  /* to test layout placement */
+  border: solid 3px pink;
+}
+
+.section-content {
+  padding: 0.4rem;
+  /* to test layout placement */
+  border: solid 3px orange;
+}
+
+.section-subsection-container {
+  /* to test layout placement
+  border: solid 3px green; */
+}
+
+.section-subsection-header {
+  /* to test layout placement
+  border: solid 3px black; */
+}
+
+.section-subsection-content {
+  /* to test layout placement
+  border: solid 3px blue; */
+}
+/*=====
+Footer
+======*/
+footer {
+  grid-area: footer;
+  position: relative;
+  /* to test layout placement */
+  border: solid 3px violet;
+}
+
+#all-about-me {
+  padding: 0.4rem;
+  text-align: center;
+  line-height: 150%;
+}
+
+#all-about-me p:first-of-type {
+  margin-bottom: 1rem;
+}
+
+/*==========
+Link styles
+===========*/
+
+/*================
+The little touches
+=================*/
+
+/*Back to top - only for small mobile screen views*/
+.backtotop {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 2rem;
+  padding: 0.4rem;
+}
 
 /*=============
 Responsiveness
 ===============*/
 
-/*Media queries for larger screens - laptops and monitors*/
-@media only screen and (min-width: 1024px) {
-}
+/*Media queries for larger monitor views*/
 
+@media only screen and (min-width: 1024px) {
+
+  body {
+    grid-template-columns: 25% 1fr;
+    grid-template-areas:
+      "header header"
+      "nav content"
+      "nav content"
+      "footer footer";
+    font-size: 16px;
+  }
+
+  /*nav stays on side view*/
+  #nav-bar {
+    position: sticky;
+    top: 0;
+  }
+
+  /*not needed on this view as have side-menu always available*/
+  .backtotop {
+    display: none;
+  }
+
+}
+/*Media queries for print view*/
+
+@media print {
+
+}
 /*=============
 Accessibility
 ===============*/
 
-@media (prefers-reduced-motion) {
-}
+/*Remove animations or visual affects based on userbrowser perference*/
 
-/*====
-Print
-=====*/
-@media print {
+@media (prefers-reduced-motion) {
 }
