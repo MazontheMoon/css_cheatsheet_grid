@@ -44,8 +44,6 @@ li {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-
-
 /*================
 Layout
 =================*/
@@ -69,7 +67,7 @@ Header and Title
 #top-header {
   grid-area: header;
   /* to test layout placement */
-  border: solid 3px green;
+  border: solid 3px green; 
 }
 
 #top-header h1 {
@@ -85,7 +83,7 @@ Nav Menu Bar
 nav {
   grid-area: nav;
   /* to test layout placement */
-  border: solid 3px orange;
+  border: solid 3px orange; 
 }
 
 #nav-bar {
@@ -120,29 +118,29 @@ main {
   grid-area: content;
   padding: 0.5rem;
   /* to test layout placement */
-  border: solid 3px black;
+  border: solid 3px black; 
 }
 
 #intro-text {
   /* to test layout placement */
-  border: solid 3px purple;
+  border: solid 3px purple; 
 }
 
 .section-container {
   margin: 0.6rem;
   /* to test layout placement */
-  border: solid 3px gray;
+  border: solid 3px gray; 
 }
 
 .section-header {
   /* to test layout placement */
-  border: solid 3px pink;
+  border: solid 3px pink; 
 }
 
 .section-content {
   padding: 0.4rem;
   /* to test layout placement */
-  border: solid 3px orange;
+  border: solid 3px orange; 
 }
 
 .section-subsection-container {
@@ -166,7 +164,7 @@ footer {
   grid-area: footer;
   position: relative;
   /* to test layout placement */
-  border: solid 3px violet;
+  border: solid 3px violet; 
 }
 
 #all-about-me {
@@ -203,7 +201,7 @@ Responsiveness
 /*Media queries for larger monitor views*/
 
 @media only screen and (min-width: 1024px) {
-
+  
   body {
     grid-template-columns: 25% 1fr;
     grid-template-areas:
@@ -219,7 +217,7 @@ Responsiveness
     position: sticky;
     top: 0;
   }
-
+  
   /*not needed on this view as have side-menu always available*/
   .backtotop {
     display: none;
@@ -229,7 +227,7 @@ Responsiveness
 /*Media queries for print view*/
 
 @media print {
-
+  
 }
 /*=============
 Accessibility

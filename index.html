@@ -14,100 +14,106 @@ My CSS Cheat Sheet for learning CSS - Grid
     <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" >
     </head>
     <!----------------------------------------------
-    My CSS Cheat Sheet for learning CSS - Grid
-    ------------------------------------------------
-    Finding your way around
-    ================================================
-    1. Header - Page Title
-    2. Nav bar (3 main buttons and 2 sub buttons for button#3)
-    3. Main - Intro & 3 sections
-    4. Section - What is Grid
-    5. Section - When to use Grid
-    6. Section - How to use Grid
-      6.1 Subsection - Grid Container
-        6.1.a ...
-      6.2 Subsection - Grid Items
-        6.2.a ...
-    7. Footer
-    --------------------------------------------------->
+My CSS Cheat Sheet for learning CSS - Grid
+------------------------------------------------
+Finding your way around 
+================================================
+1. Header - Page Title
+2. Nav bar (3 main buttons and 2 sub buttons for button#3)
+3. Main - Intro & 3 sections
+4. Section - When to use Grid 
+5. Section - What is Grid
+6. Section - How to use Grid
+  6.1 Subsection - Grid Container
+    6.1.a ...
+  6.2 Subsection - Grid Items
+    6.2.a ...
+7. Footer
+--------------------------------------------------->
 
-    <body>
-      <!--Header-->
-      <header id="top-header">
-        <h1>The CSS Grid</h1>
+<body>
+  <!--Header-->
+  <header id="top-header">
+    <h1>The CSS Grid</h1>
+  </header>
+  <!--nav menu-->
+  <nav>
+    <ul id="nav-bar">
+      <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#when-grid">When to use Grid?</a></li>
+      <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#what-grid">What is Grid?</a></li>
+      <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#how-grid-container">How to use Grid?</a></li>
+      <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#">
+          <ul id="nav-bar-child">
+            <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-container">Grid Container</a></li>
+            <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-item">Grid Items</a></li>
+          </ul>
+        </a></li>
+    </ul>
+  </nav>
+  <!--main content for page-->
+  <main id="container">
+    <div id="intro-text">
+      <p>Welcome to my collection of cheatsheets in my teach-myself-to-code journey!</p>
+      <p>At this stage of the design process we have gathered all the content for the project and are ready to lay out the design of the page. We already have a cheatsheet for <a href="https://codepen.io/mazonthemoon/full/wvGzrOP" target="_blank"> Display and Positioning</a>, and also one specially for <a href="https://codepen.io/mazonthemoon/full/JjXVMrb" target="_blank">Flexbox</a> so Grid also deserves it's own dedicated cheatsheet.</p>
+    </div>
+    <!--section 1of3 - When to use Grid-->
+    <section id="when-grid" class="section-container">
+      <header class="section-header">
+        <h3>When to use Grid?</h3>
       </header>
-      <!--nav menu-->
-      <nav>
-        <ul id="nav-bar">
-          <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#what-grid">What is Grid?</a></li>
-          <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#when-grid">When to use Grid?</a></li>
-          <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#how-grid-container">How to use Grid?</a></li>
-          <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#">
-              <ul id="nav-bar-child">
-                <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-container">Grid Container</a></li>
-                <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-item">Grid Items</a></li>
-              </ul>
-            </a></li>
-        </ul>
-      </nav>
-      <!--main content for page-->
-      <main id="container">
-        <div id="intro-text">
-          <p>Welcome to my collection of cheatsheets in my teach-myself-to-code journey!</p>
-          <p>At this stage of the design process we have gathered all the content for the project and are ready to lay out the design of the page. We already have a cheatsheet for <a href="https://codepen.io/mazonthemoon/full/wvGzrOP"> Display and Positioning</a>, and also one specially for <a href="https://codepen.io/mazonthemoon/full/JjXVMrb">Flexbox</a> so Grid also deserves it's own dedicated cheatsheet.</p>
-        </div>
-        <!--section 1of3 What is Grid-->
-        <section id="what-grid" class="section-container">
-          <header class="section-header">
-            <h3>What is Grid?</h3>
-          </header>
-          <div class="section-content"></div>
-        </section>
-        <!--section 2of3 When to use Grid-->
-        <section id="when-grid" class="section-container">
-          <header class="section-header">
-            <h3>When to use Grid?</h3>
-          </header>
-          <div class="section-content"></div>
-        </section>
-        <!--section 3of3 How to use Grid-->
-        <section id="how-grid" class="section-container">
-          <header class="section-header">
-            <h3>How to use Grid?</h3>
-          </header>
-          <div class="section-content">
-            <!--section 3of3 How to use Grid subsection 1of2 Grid container-->
-            <div id="how-grid-container" class="section-subsection-container">
-              <div class="section-subsection-header">
-                <h5>Grid Container</h5>
-              </div>
-              <div class="section-subsection-content"></div>
-            </div>
-            <!--section 3of3 How to use Grid subsection 2of2 Grid items-->
-            <div id="how-grid-item" class="section-subsection-container">
-              <div class="section-subsection-header">
-                <h5>Grid Items</h5>
-              </div>
-              <div class="section-subsection-content"></div>
-            </div>
+      <div class="section-content">
+        <p>Grid used on the main page container allows you to create complex layouts to position the content in rows and columns.</p>
+        <p>As well as setting <span class="code-word">display: grid;</span> there is also <span class="code-word">display: inline-grid;</span> for the extra level of complexity</p>
+      </div>
+    </section>
+    <!--section 2of3 - What is Grid-->
+    <section id="what-grid" class="section-container">
+      <header class="section-header">
+        <h3>What is Grid?</h3>
+      </header>
+      <div class="section-content">
+        <p>Grid is a very powerful tool and can be used to specify the placement of elements in the document.</p>
+        <p>Grid and flexbox can work hand in hand for specifying the layout of a document...flexbox for the 1D layout (a single column or row) and grid for the 2D layout of rows and columns together...just as the name suggests. </p>
+      </div>
+    </section>
+    <!--section 3of3 - How to use Grid-->
+    <section id="how-grid" class="section-container">
+      <header class="section-header">
+        <h3>How to use Grid?</h3>
+      </header>
+      <div class="section-content">
+        <!--section 3of3 How to use Grid subsection 1of2 Grid container-->
+        <div id="how-grid-container" class="section-subsection-container">
+          <div class="section-subsection-header">
+            <h5>Grid Container</h5>
           </div>
-
-        </section>
-
-      </main>
-      <!--footer-->
-      <footer>
-        <!--Made by Me  - Github, Codepen, LinkedIn and Wordpress blog-->
-        <div id="all-about-me">
-          <p>Designed by <abbr title="Mary Ronan">MazOnTheMoon</abbr> 2020</p>
-          <p><a href="https://www.linkedin.com/in/mary-ronan/" target="_blank"> <span class="fab fa-linkedin"> </span></a>
-            <a href="https://github.com/MazontheMoon" target="_blank"> <span class="fab fa-github-square"> </span></a>
-            <a href="https://codepen.io/mazonthemoon/#" target="_blank"> <span class="fab fa-codepen"> </span></a>
-            <a href="https://mazcodesonthemoon.wordpress.com/2020/10/12/teaching-myself-to-code-css/" target="_blank"> <span class="fab fa-wordpress"> </span></a>
-          </p>
+          <div class="section-subsection-content"></div>
         </div>
-        <!--Back to top shortcut-->
-        <div class="backtotop"><a class="toplink" href="#top"> <i class="far fa-arrow-alt-circle-up"></i></a></div>
-      </footer>
-    </body>
+        <!--section 3of3 How to use Grid subsection 2of2 Grid items-->
+        <div id="how-grid-item" class="section-subsection-container">
+          <div class="section-subsection-header">
+            <h5>Grid Items</h5>
+          </div>
+          <div class="section-subsection-content"></div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+  <!--footer-->
+  <footer>
+    <!--Made by Me  - Github, Codepen, LinkedIn and Wordpress blog-->
+    <div id="all-about-me">
+      <p>Designed by <abbr title="Mary Ronan">MazOnTheMoon</abbr> 2020</p>
+      <p><a href="https://www.linkedin.com/in/mary-ronan/" target="_blank"> <span class="fab fa-linkedin"> </span></a>
+        <a href="https://github.com/MazontheMoon" target="_blank"> <span class="fab fa-github-square"> </span></a>
+        <a href="https://codepen.io/mazonthemoon/#" target="_blank"> <span class="fab fa-codepen"> </span></a>
+        <a href="https://mazcodesonthemoon.wordpress.com/2020/10/12/teaching-myself-to-code-css/" target="_blank"> <span class="fab fa-wordpress"> </span></a>
+      </p>
+    </div>
+    <!--Back to top shortcut-->
+    <div class="backtotop"><a class="toplink" href="#top"> <i class="far fa-arrow-alt-circle-up"></i></a></div>
+  </footer>
+</body>
   </html>
