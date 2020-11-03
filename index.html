@@ -16,12 +16,12 @@ My CSS Cheat Sheet for learning CSS - Grid
     <!----------------------------------------------
 My CSS Cheat Sheet for learning CSS - Grid
 ------------------------------------------------
-Finding your way around 
+Finding your way around
 ================================================
 1. Header - Page Title
 2. Nav bar (3 main buttons and 2 sub buttons for button#3)
 3. Main - Intro & 3 sections
-4. Section - When to use Grid 
+4. Section - When to use Grid
 5. Section - What is Grid
 6. Section - How to use Grid
   6.1 Subsection - Grid Container
@@ -42,19 +42,16 @@ Finding your way around
       <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#when-grid">When to use Grid?</a></li>
       <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#what-grid">What is Grid?</a></li>
       <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#how-grid-container">How to use Grid?</a></li>
-      <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#">
-          <ul id="nav-bar-child">
-            <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-container">Grid Container</a></li>
-            <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-item">Grid Items</a></li>
-          </ul>
-        </a></li>
+      <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-container">Grid Container</a></li>
+      <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-item">Grid Items</a></li>
     </ul>
   </nav>
   <!--main content for page-->
   <main id="container">
     <div id="intro-text">
       <p>Welcome to my collection of cheatsheets in my teach-myself-to-code journey!</p>
-      <p>At this stage of the design process we have gathered all the content for the project and are ready to lay out the design of the page. We already have a cheatsheet for <a href="https://codepen.io/mazonthemoon/full/wvGzrOP" target="_blank"> Display and Positioning</a>, and also one specially for <a href="https://codepen.io/mazonthemoon/full/JjXVMrb" target="_blank">Flexbox</a> so Grid also deserves it's own dedicated cheatsheet.</p>
+      <p>At this stage of the design process we have gathered all the content for the project and are ready to lay out the design of the page.</p>
+      <p> We already have a cheatsheet for <a href="https://codepen.io/mazonthemoon/full/wvGzrOP" target="_blank"> Display and Positioning</a>, but just like <a href="https://codepen.io/mazonthemoon/full/JjXVMrb" target="_blank">Flexbox</a> was deserving of a page all to itself so too is Grid .</p>
     </div>
     <!--section 1of3 - When to use Grid-->
     <section id="when-grid" class="section-container">
@@ -62,8 +59,8 @@ Finding your way around
         <h3>When to use Grid?</h3>
       </header>
       <div class="section-content">
-        <p>Grid used on the main page container allows you to create complex layouts to position the content in rows and columns.</p>
-        <p>As well as setting <span class="code-word">display: grid;</span> there is also <span class="code-word">display: inline-grid;</span> for the extra level of complexity</p>
+        <p>Grid allows you to create complex layouts to position content in rows and columns.</p>
+        <p>As well as setting <span class="code-word">display: grid;</span> there is also <span class="code-word">display: inline-grid;</span> for the extra level of fun design.</p>
       </div>
     </section>
     <!--section 2of3 - What is Grid-->
@@ -72,8 +69,8 @@ Finding your way around
         <h3>What is Grid?</h3>
       </header>
       <div class="section-content">
-        <p>Grid is a very powerful tool and can be used to specify the placement of elements in the document.</p>
-        <p>Grid and flexbox can work hand in hand for specifying the layout of a document...flexbox for the 1D layout (a single column or row) and grid for the 2D layout of rows and columns together...just as the name suggests. </p>
+        <p>Grid is an immensely powerful tool used to specify the placement of elements in the document.</p>
+        <p>Grid and flexbox can work hand in hand for specifying the layout of a document;flexbox for the 1D layout (a single column or row) and grid for the 2D layout of rows and columns together...just as the name suggests...and also like flexbox the source order of the content items does not matter and you can place them in any order in the grid which makes it really simple to rearrange with media queries for responsive design.</p>
       </div>
     </section>
     <!--section 3of3 - How to use Grid-->
@@ -84,6 +81,22 @@ Finding your way around
       <div class="section-content">
         <!--section 3of3 How to use Grid subsection 1of2 Grid container-->
         <div id="how-grid-container" class="section-subsection-container">
+          <p>Using grid will involve setting the grid container and then the placement of the grid items in the container.</p>
+          <p>Some terms we need to know before we dive into it...</p>
+          <dl>
+            <dt>Grid Container</dt>
+            <dd>This is the parent or the container for grid where all the grid items will be laid out.</dd>
+            <dt>Grid Item</dt>
+            <dd>This is a <span class="really-look-at-me-text">direct descendant</span> or child of the grid-container</dd>
+            <dt>Grid Line</dt>
+            <dd>These are the row (horizontal) and column (vertical) dividing lines that make up the cells in the grid</dd>
+            <dt>Grid Cell</dt>
+            <dd>A cell is a single unit of the grid and takes up the space between two adjacant row <span class="really-look-at-me-text">and</span> column lines </dd>
+            <dt>Grid Track</dt>
+            <dd>The track takes up the space between two adjacant row lines <span class="really-look-at-me-text">or</span> column lines...think of it as all the cells along the same row (or column)</dd>
+            <dt>Grid Area</dt>
+            <dd>The cell is a single unit and the track is a row (or column) of adjacent units but the area takes up the total space within 4 grid lines (however <span class="really-look-at-me-text">must</span> be in a square or rectangular shape)</dd>
+          </dl>
           <div class="section-subsection-header">
             <h5>Grid Container</h5>
           </div>
