@@ -27,7 +27,6 @@ body * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  margin: 0;
 }
 
 /*====================
@@ -40,8 +39,31 @@ h1,
 h3,
 h5,
 p,
-li {
+li,
+dt,
+dd {
   font-family: Helvetica, Arial, sans-serif;
+}
+
+
+/*code word or snippet in the middle of normal text*/
+.code-word {
+
+}
+
+/*example code snippet to stand out */
+.code-box {
+
+}
+
+/*highlight text visually but not affecting screenreaders*/
+.look-at-me-text {
+  font-style: italic;
+}
+
+.really-look-at-me-text {
+  font-weight: bold;
+  border-bottom: solid 1px;
 }
 
 /*================
@@ -67,12 +89,14 @@ Header and Title
 #top-header {
   grid-area: header;
   /* to test layout placement */
-  border: solid 3px green; 
+  border: solid 3px green;
 }
 
 #top-header h1 {
   text-align: center;
-  /* to test layout placement
+  margin: 0.5rem;
+  padding: 0.5rem;
+  /* to test layout placement */
   border: solid 3px blue; */
 }
 
@@ -83,12 +107,13 @@ Nav Menu Bar
 nav {
   grid-area: nav;
   /* to test layout placement */
-  border: solid 3px orange; 
+  border: solid 3px orange;
 }
 
 #nav-bar {
   list-style: none;
   padding: 0;
+  margin: 0;
   /* to test layout placement
   border: solid 3px cyan; */
 }
@@ -98,49 +123,48 @@ nav {
   border: solid 3px magenta; */
 }
 
-#nav-bar-child {
-  list-style: none;
-  padding: 0;
-  /* to test layout placement
-  border: solid 3px navy; */
-}
-
 .nav-bar-button-child {
   /* to test layout placement
   border: solid 3px yellow; */
 }
 
-/*================
+/*==============
 Section Styling
-=================*/
+================*/
 
+/**/
 main {
   grid-area: content;
   padding: 0.5rem;
   /* to test layout placement */
-  border: solid 3px black; 
+  border: solid 3px black;
 }
 
 #intro-text {
   /* to test layout placement */
-  border: solid 3px purple; 
+  border: solid 3px purple;
+}
+
+#intro-text p:first-of-type {
+  text-align: center;
+  margin-bottom: 0.6rem;
 }
 
 .section-container {
   margin: 0.6rem;
   /* to test layout placement */
-  border: solid 3px gray; 
+  border: solid 3px gray;
 }
 
 .section-header {
   /* to test layout placement */
-  border: solid 3px pink; 
+  border: solid 3px pink;
 }
 
 .section-content {
   padding: 0.4rem;
   /* to test layout placement */
-  border: solid 3px orange; 
+  border: solid 3px orange;
 }
 
 .section-subsection-container {
@@ -164,7 +188,7 @@ footer {
   grid-area: footer;
   position: relative;
   /* to test layout placement */
-  border: solid 3px violet; 
+  border: solid 3px violet;
 }
 
 #all-about-me {
@@ -201,9 +225,9 @@ Responsiveness
 /*Media queries for larger monitor views*/
 
 @media only screen and (min-width: 1024px) {
-  
+
   body {
-    grid-template-columns: 25% 1fr;
+    grid-template-columns: 20% 1fr;
     grid-template-areas:
       "header header"
       "nav content"
@@ -217,7 +241,7 @@ Responsiveness
     position: sticky;
     top: 0;
   }
-  
+
   /*not needed on this view as have side-menu always available*/
   .backtotop {
     display: none;
@@ -227,7 +251,7 @@ Responsiveness
 /*Media queries for print view*/
 
 @media print {
-  
+
 }
 /*=============
 Accessibility
