@@ -16,16 +16,31 @@ My CSS Cheat Sheet for learning CSS - Grid
     <!----------------------------------------------
 My CSS Cheat Sheet for learning CSS - Grid
 ------------------------------------------------
-Finding your way around
+Finding your way around 
 ================================================
 1. Header - Page Title
 2. Nav bar (3 main buttons and 2 sub buttons for button#3)
 3. Main - Intro & 3 sections
-4. Section - When to use Grid
+4. Section - When to use Grid 
 5. Section - What is Grid
 6. Section - How to use Grid
   6.1 Subsection - Grid Container
-    6.1.a ...
+    6.1.a grid-template-rows
+    6.1.b grid-template-areas
+    6.1.c grid-template
+    6.1.d grid-column-gap
+    6.1.e grid-row-gap
+    6.1.f grid-gap
+    6.1.g justify-items
+    6.1.h align-items
+    6.1.i place-items
+    6.1.j justify-content
+    6.1.k align-content
+    6.1.l place-content
+    6.1.m grid-auto-columns
+    6.1.n grid-auto-rows
+    6.1.o grid-auto-flow
+    6.1.p grid
   6.2 Subsection - Grid Items
     6.2.a ...
 7. Footer
@@ -95,12 +110,60 @@ Finding your way around
             <dt>Grid Track</dt>
             <dd>The track takes up the space between two adjacant row lines <span class="really-look-at-me-text">or</span> column lines...think of it as all the cells along the same row (or column)</dd>
             <dt>Grid Area</dt>
-            <dd>The cell is a single unit and the track is a row (or column) of adjacent units but the area takes up the total space within 4 grid lines (however <span class="really-look-at-me-text">must</span> be in a square or rectangular shape)</dd>
+            <dd>The cell is a single unit and the track is a row (or column) of adjacent units but the area takes up the total space within 4 grid lines (<span class="really-look-at-me-text">must</span> be in a square or rectangular shape)</dd>
           </dl>
           <div class="section-subsection-header">
             <h5>Grid Container</h5>
           </div>
-          <div class="section-subsection-content"></div>
+          <div class="section-subsection-content">
+            <p>Properties for the grid container...</p>
+            <ul class="section-subsection-content-list">
+              <li><a href="#container-display">display</a></li>
+              <li><a href="#container-grid-temp-col">grid-template-columns</a></li>
+              <li><a href="#container-grid-temp-row">grid-template-rows</a></li>
+              <li><a href="#container-grid-temp-area">grid-template-areas</a></li>
+              <li><a href="#container-grid-temp">grid-template</a></li>
+              <li><a href="#container-grid-col-gap">grid-column-gap</a></li>
+              <li><a href="#container-grid-row-gap">grid-row-gap</a></li>
+              <li><a href="#container-grid-gap">grid-gap</a></li>
+              <li><a href="#container-grid-justify-items">justify-items</a></li>
+              <li><a href="#container-grid-align-item">align-items</a></li>
+              <li><a href="#container-grid-place-item">place-items</a></li>
+              <li><a href="#container-grid-justify-content">justify-content</a></li>
+              <li><a href="#container-grid-align-content">align-content</a></li>
+              <li><a href="#container-grid-place-content">place-content</a></li>
+              <li><a href="#container-grid-auto-col">grid-auto-columns</a></li>
+              <li><a href="#container-grid-auto-row">grid-auto-rows</a></li>
+              <li><a href="#container-grid-auto-flow">grid-auto-flow</a></li>
+              <li><a href="#container-grid">grid</a></li>
+            </ul>
+            <!--Grid Container - display property-->
+            <div id="container-display" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Display</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-template-columns property-->
+            <div id="container-display" class="section-subsection-content-info">
+                <h5 class="sub-heading-text">Grid Template Columns</h5>
+                  <p></p>
+                  <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-template-row property-->
+            <div id="container-grid-temp-row" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Template Rows
+                </h5>
+                  <p></p>
+                  <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-template-area property-->
+            <div id="container-grid-temp-area" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Template Area
+                </h5>
+                  <p></p>
+                  <code class="code-box"></code>
+            </div>
+          </div>
         </div>
         <!--section 3of3 How to use Grid subsection 2of2 Grid items-->
         <div id="how-grid-item" class="section-subsection-container">
