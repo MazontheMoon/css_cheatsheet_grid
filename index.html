@@ -16,12 +16,12 @@ My CSS Cheat Sheet for learning CSS - Grid
     <!----------------------------------------------
 My CSS Cheat Sheet for learning CSS - Grid
 ------------------------------------------------
-Finding your way around 
+Finding your way around
 ================================================
 1. Header - Page Title
-2. Nav bar (3 main buttons and 2 sub buttons for button#3)
+2. Nav bar (4 main buttons and 2 sub buttons for button#3)
 3. Main - Intro & 3 sections
-4. Section - When to use Grid 
+4. Section - When to use Grid
 5. Section - What is Grid
 6. Section - How to use Grid
   6.1 Subsection - Grid Container
@@ -42,8 +42,18 @@ Finding your way around
     6.1.o grid-auto-flow
     6.1.p grid
   6.2 Subsection - Grid Items
-    6.2.a ...
-7. Footer
+    6.2.a grid-column-start
+    6.2.b grid-column-end
+    6.2.c grid-row-start
+    6.2.d grid-row-end
+    6.2.e grid-column
+    6.2.f grid-row
+    6.2.g grid-area
+    6.2.h justify-self
+    6.2.i align-self
+    6.2.j place-self
+7. Section - Grids Grids Grids (different ways to create the same grid)
+8. Footer
 --------------------------------------------------->
 
 <body>
@@ -59,6 +69,7 @@ Finding your way around
       <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#how-grid-container">How to use Grid?</a></li>
       <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-container">Grid Container</a></li>
       <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-item">Grid Items</a></li>
+      <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#grid-grid">Grids Grids Grids</a></li>
     </ul>
   </nav>
   <!--main content for page-->
@@ -68,7 +79,7 @@ Finding your way around
       <p>At this stage of the design process we have gathered all the content for the project and are ready to lay out the design of the page.</p>
       <p> We already have a cheatsheet for <a href="https://codepen.io/mazonthemoon/full/wvGzrOP" target="_blank"> Display and Positioning</a>, but just like <a href="https://codepen.io/mazonthemoon/full/JjXVMrb" target="_blank">Flexbox</a> was deserving of a page all to itself so too is Grid .</p>
     </div>
-    <!--section 1of3 - When to use Grid-->
+    <!--section 1of4 - When to use Grid-->
     <section id="when-grid" class="section-container">
       <header class="section-header">
         <h3>When to use Grid?</h3>
@@ -78,7 +89,7 @@ Finding your way around
         <p>As well as setting <span class="code-word">display: grid;</span> there is also <span class="code-word">display: inline-grid;</span> for the extra level of fun design.</p>
       </div>
     </section>
-    <!--section 2of3 - What is Grid-->
+    <!--section 2of4 - What is Grid-->
     <section id="what-grid" class="section-container">
       <header class="section-header">
         <h3>What is Grid?</h3>
@@ -88,13 +99,13 @@ Finding your way around
         <p>Grid and flexbox can work hand in hand for specifying the layout of a document;flexbox for the 1D layout (a single column or row) and grid for the 2D layout of rows and columns together...just as the name suggests...and also like flexbox the source order of the content items does not matter and you can place them in any order in the grid which makes it really simple to rearrange with media queries for responsive design.</p>
       </div>
     </section>
-    <!--section 3of3 - How to use Grid-->
+    <!--section 3of4 - How to use Grid-->
     <section id="how-grid" class="section-container">
       <header class="section-header">
         <h3>How to use Grid?</h3>
       </header>
       <div class="section-content">
-        <!--section 3of3 How to use Grid subsection 1of2 Grid container-->
+        <!--section 3of4 How to use Grid subsection 1of2 Grid container-->
         <div id="how-grid-container" class="section-subsection-container">
           <p>Using grid will involve setting the grid container and then the placement of the grid items in the container.</p>
           <p>Some terms we need to know before we dive into it...</p>
@@ -127,8 +138,8 @@ Finding your way around
               <li><a href="#container-grid-row-gap">grid-row-gap</a></li>
               <li><a href="#container-grid-gap">grid-gap</a></li>
               <li><a href="#container-grid-justify-items">justify-items</a></li>
-              <li><a href="#container-grid-align-item">align-items</a></li>
-              <li><a href="#container-grid-place-item">place-items</a></li>
+              <li><a href="#container-grid-align-items">align-items</a></li>
+              <li><a href="#container-grid-place-items">place-items</a></li>
               <li><a href="#container-grid-justify-content">justify-content</a></li>
               <li><a href="#container-grid-align-content">align-content</a></li>
               <li><a href="#container-grid-place-content">place-content</a></li>
@@ -140,40 +151,213 @@ Finding your way around
             <!--Grid Container - display property-->
             <div id="container-display" class="section-subsection-content-info">
               <h5 class="sub-heading-text">Display</h5>
-              <p></p>
-              <code class="code-box"></code>
+              <p>The first step in creating a grid is to define the elemtent which will be the grid container using <span class="code-word">display</span>.</p>
+              <code class="code-box">
+                <pre>div {
+display: grid;
+}</pre>
+              </code>
+              <code class="code-box">
+                <pre>div {
+display: inline-grid;
+}</pre>
+              </code>
             </div>
             <!--Grid Container - grid-template-columns property-->
             <div id="container-display" class="section-subsection-content-info">
-                <h5 class="sub-heading-text">Grid Template Columns</h5>
-                  <p></p>
-                  <code class="code-box"></code>
+              <h5 class="sub-heading-text">Grid Template Columns</h5>
+              <p>Using a space seperated list of values we can define the columns in the grid.</p>
+              <code class="code-box"></code>
             </div>
             <!--Grid Container - grid-template-row property-->
             <div id="container-grid-temp-row" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Template Rows
-                </h5>
-                  <p></p>
-                  <code class="code-box"></code>
+              <h5 class="sub-heading-text">Grid Template Rows</h5>
+              <p></p>
+              <code class="code-box"></code>
             </div>
             <!--Grid Container - grid-template-area property-->
             <div id="container-grid-temp-area" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Template Area
-                </h5>
-                  <p></p>
-                  <code class="code-box"></code>
+              <h5 class="sub-heading-text">Grid Template Area</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-template property-->
+            <div id="container-grid-temp" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Template</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-column-gap property-->
+            <div id="container-grid-col-gap" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Column Gap</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-row-gap property-->
+            <div id="container-grid-row-gap" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Row Gap</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-gap property-->
+            <div id="container-grid-gap" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Gap</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-justify-items property-->
+            <div id="container-grid-justify-items" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Justify Items</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - align-item property-->
+            <div id="container-grid-align-items" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Align Items</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - place-items property-->
+            <div id="container-grid-place-items" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Place Items</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-justify-content property-->
+            <div id="container-grid-justify-content" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Justify Content</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - align-content property-->
+            <div id="container-grid-align-content" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Align Content</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - place-content property-->
+            <div id="container-grid-place-content" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Place Content</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-auto-columns property-->
+            <div id="container-grid-auto-col" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Auto Columns</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-auto-rows property-->
+            <div id="container-grid-auto-row" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Auto Rows</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid-auto-flow property-->
+            <div id="container-grid-auto-flow" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Auto Flow</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Container - grid property-->
+            <div id="container-grid" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid</h5>
+              <p></p>
+              <code class="code-box"></code>
             </div>
           </div>
         </div>
-        <!--section 3of3 How to use Grid subsection 2of2 Grid items-->
+        <!--section 3of4 How to use Grid subsection 2of2 Grid items-->
         <div id="how-grid-item" class="section-subsection-container">
           <div class="section-subsection-header">
             <h5>Grid Items</h5>
           </div>
-          <div class="section-subsection-content"></div>
+          <div class="section-subsection-content">
+            <p>Properties for the grid items (grid children)...</p>
+            <ul class="section-subsection-content-list">
+              <li><a href="#gitem-grid-col-start">grid-column-start</a></li>
+              <li><a href="#gitem-grid-col-end">grid-column-end</a></li>
+              <li><a href="#gitem-grid-row-start">grid-row-start</a></li>
+              <li><a href="#gitem-grid-row-end">grid-row-end</a></li>
+              <li><a href="#gitem-grid-col">grid-column</a></li>
+              <li><a href="#gitem-grid-row">grid-row</a></li>
+              <li><a href="#gitem-grid-area">grid-area</a></li>
+              <li><a href="#gitem-grid-justify-self">justify-self</a></li>
+              <li><a href="#gitem-grid-align-self">align-self</a></li>
+              <li><a href="#gitem-grid-place-self">place-self</a></li>
+            </ul>
+            <!--Grid Item - grid-column-start property-->
+            <div id="gitem-grid-col-start" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Column Start</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-column-end property-->
+            <div id="gitem-grid-col-end" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Column End</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-row-start property-->
+            <div id="gitem-grid-row-start" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Row Start</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-row-end property-->
+            <div id="gitem-grid-row-end" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Row End</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-col property-->
+            <div id="gitem-grid-col" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Column</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-row property-->
+            <div id="gitem-grid-row" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Row</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-area property-->
+            <div id="gitem-grid-area" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Area</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-justify-self property-->
+            <div id="gitem-grid-justify-self" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Justify Self</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-align-self property-->
+            <div id="gitem-grid-align-self" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Align Self</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+            <!--Grid Item - grid-place-self property-->
+            <div id="gitem-grid-place-self" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Place Self</h5>
+              <p></p>
+              <code class="code-box"></code>
+            </div>
+          </div>
         </div>
       </div>
-
+    </section>
+    <!--section 4of4 - Grids Grids Grids-->
+    <section id="grid-grid" class="section-container">
+      <header class="section-header">
+        <h3>Grids Grids Grids!</h3>
+      </header>
+      <div class="section-content">
+        <p>Now let's make some grids!</p>
+      </div>
     </section>
 
   </main>
