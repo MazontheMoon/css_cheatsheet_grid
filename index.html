@@ -130,8 +130,8 @@ Finding your way around
             <p>Properties for the grid container...</p>
             <ul class="section-subsection-content-list">
               <li><a href="#container-display">display</a></li>
-              <li><a href="#container-grid-temp-col">grid-template-columns</a></li>
-              <li><a href="#container-grid-temp-row">grid-template-rows</a></li>
+              <li><a href="#container-grid-temp-col-row">grid-template-columns</a></li>
+              <li><a href="#container-grid-temp-col-row">grid-template-rows</a></li>
               <li><a href="#container-grid-temp-area">grid-template-areas</a></li>
               <li><a href="#container-grid-temp">grid-template</a></li>
               <li><a href="#container-grid-col-gap">grid-column-gap</a></li>
@@ -151,28 +151,31 @@ Finding your way around
             <!--Grid Container - display property-->
             <div id="container-display" class="section-subsection-content-info">
               <h5 class="sub-heading-text">Display</h5>
-              <p>The first step in creating a grid is to define the elemtent which will be the grid container using <span class="code-word">display</span>.</p>
+              <p>The first step in creating a grid is to define the element which will be the grid container using <span class="code-word">display</span>.</p>
               <code class="code-box">
-                <pre>div {
-display: grid;
+                <pre>div { 
+display: grid; 
 }</pre>
               </code>
               <code class="code-box">
-                <pre>div {
-display: inline-grid;
+                <pre>div { 
+display: inline-grid; 
 }</pre>
               </code>
             </div>
-            <!--Grid Container - grid-template-columns property-->
-            <div id="container-display" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Template Columns</h5>
-              <p>Using a space seperated list of values we can define the columns in the grid.</p>
-              <code class="code-box"></code>
-            </div>
-            <!--Grid Container - grid-template-row property-->
-            <div id="container-grid-temp-row" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Template Rows</h5>
-              <p></p>
+            <!--Grid Container - grid-template-columns & grid-template-row properties-->
+            <div id="container-grid-temp-col-row" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Template Columns and Rows</h5>
+              <p>Using a space seperated list of values for the <span class="look-at-me-text">track-size</span> and <span class="look-at-me-text">line-name</span>we can define the columns and rows that make up the grid.</p>
+              <p>Values for <span class="look-at-me-text">track-size</span>can be...</p>
+              <ul class="property-value-list">
+                <li>length - 200px</li>
+                <li>percentage - 20%</li>
+                <li>fraction - 1fr</li>
+                <li>auto</li>
+              </ul>
+              <p>If the column or row is defined with only <span class="look-at-me-text">track-size</span> then the grid lnes are automatically numbered with positive and negative numbers (postive numbers for the grid lines going from <span class="look-at-me-text">first</span> line to the <span class="look-at-me-text">last</span> line or negative numbers when going from the <span class="look-at-me-text">last</span> grid line to the <span class="look-at-me-text">first</span> grid line.</p>
+              <p>This allows you to target the <span class="look-at-me-text">last</span> cell using the gridline -1</p>
               <code class="code-box"></code>
             </div>
             <!--Grid Container - grid-template-area property-->
