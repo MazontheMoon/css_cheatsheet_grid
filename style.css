@@ -39,8 +39,8 @@ h1,
 h3,
 h5,
 p,
-li, 
-dt, 
+li,
+dt,
 dd {
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -48,13 +48,16 @@ dd {
 
 /*code word or snippet in the middle of normal text*/
 .code-word {
-  
+
 }
 
 /*example code snippet to stand out */
 .code-box {
-  
+  display: inline-block;
+  border: solid 3px red;
 }
+
+/*indentation in code box*/
 
 /*highlight text visually but not affecting screenreaders*/
 .look-at-me-text {
@@ -67,13 +70,12 @@ dd {
 }
 
 .sub-heading-text {
-  
+
 }
 /*================
 Layout
 =================*/
 body {
-  max-width 100%;
   border: solid 3px red;
   display: grid;
   grid-template-columns: 1fr;
@@ -92,7 +94,7 @@ Header and Title
 #top-header {
   grid-area: header;
   /* to test layout placement */
-  border: solid 3px green; 
+  border: solid 3px green;
 }
 
 #top-header h1 {
@@ -110,13 +112,13 @@ Nav Menu Bar
 nav {
   grid-area: nav;
   /* to test layout placement */
-  border: solid 3px orange; 
+  border: solid 3px orange;
 }
 
 #nav-bar {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0.5rem;
   /* to test layout placement
   border: solid 3px cyan; */
 }
@@ -138,63 +140,59 @@ Section Styling
 /**/
 main {
   grid-area: content;
-  padding: 0.5rem;
   /* to test layout placement */
-  border: solid 3px black; 
+  border: solid 3px black;
 }
 
 #intro-text {
   /* to test layout placement */
-  border: solid 3px purple; 
+  border: solid 3px purple;
 }
 
 #intro-text p:first-of-type {
   text-align: center;
-  margin-bottom: 0.6rem;
 }
 
 .section-container {
-  margin: 0.6rem;
   /* to test layout placement */
-  border: solid 3px gray; 
+  border: solid 3px gray;
 }
 
 .section-header {
   /* to test layout placement */
-  border: solid 3px pink; 
+  border: solid 3px pink;
 }
 
 .section-content {
-  padding: 0.4rem;
   /* to test layout placement */
-  border: solid 3px orange; 
+  border: solid 3px orange;
 }
 
 .section-subsection-container {
-  /* to test layout placement
-  border: solid 3px green; */
+  /* to test layout placement*/
+  border: solid 3px green;
 }
 
 .section-subsection-header {
-  /* to test layout placement
-  border: solid 3px black; */
+  /* to test layout placement*/
+  border: solid 3px black;
 }
 
 .section-subsection-content {
-  /* to test layout placement
-  border: solid 3px blue; */
+  /* to test layout placement */
+  border: solid 3px blue;
 }
 
 .section-subsection-content-list {
-  
+
 }
 
 .section-subsection-content-info {
-  
+
 }
 
 .property-value-list {
-  
+
 }
 
 /*=====
@@ -204,7 +202,7 @@ footer {
   grid-area: footer;
   position: relative;
   /* to test layout placement */
-  border: solid 3px violet; 
+  border: solid 3px violet;
 }
 
 #all-about-me {
@@ -241,7 +239,7 @@ Responsiveness
 /*Media queries for larger monitor views*/
 
 @media only screen and (min-width: 1024px) {
-  
+
   body {
     grid-template-columns: 20% 1fr;
     grid-template-areas:
@@ -257,7 +255,7 @@ Responsiveness
     position: sticky;
     top: 0;
   }
-  
+
   /*not needed on this view as have side-menu always available*/
   .backtotop {
     display: none;
@@ -267,7 +265,7 @@ Responsiveness
 /*Media queries for print view*/
 
 @media print {
-  
+
 }
 /*=============
 Accessibility
