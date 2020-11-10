@@ -10,8 +10,8 @@ Declare variables for page
 
   /*font and text*/
   --header-text-font: "Trebuchet MS", cursive;
-  --text-font:  Verdana, sans-serif;
-  --code-font:  monospace;
+  --text-font: Verdana, sans-serif;
+  --code-font: monospace;
 }
 
 /*======================================
@@ -48,10 +48,11 @@ dd {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-
 /*code word or snippet in the middle of normal text*/
 .code-word {
-
+  background-color: black;
+  color: white;
+  padding: 0.4rem;
 }
 
 /*example code snippet to stand out */
@@ -73,7 +74,8 @@ dd {
 }
 
 .sub-heading-text {
-
+  /* to test layout placement */
+  border: solid 3px seagreen;
 }
 /*================
 Layout
@@ -105,7 +107,7 @@ Header and Title
   margin: 0.5rem;
   padding: 0.5rem;
   /* to test layout placement */
-  border: solid 3px blue; */
+  border: solid 3px blue;
 }
 
 /*================
@@ -187,15 +189,12 @@ main {
 }
 
 .section-subsection-content-list {
-
 }
 
 .section-subsection-content-info {
-
 }
 
 .property-value-list {
-
 }
 
 /*==============================
@@ -214,21 +213,59 @@ Code example boxes - properties
   border: solid black 3px;
   background-color: grey;
   display: grid;
-  grid-template-columns: repeat (3 1fr);
-  grid-template-rows: repeat (3 1fr);
-  grid-gap: 3px;
+  grid-template-areas:
+    "top-left top-center top-right"
+    "center-left center-center center-right"
+    "bottom-left bottom-center bottom-right";
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-gap: 0;
 }
 
 /*grid item in container*/
 .grid-figure-child {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1px;
+  margin: 0;
   border: solid 1px white;
   background-color: black;
   color: white;
   font-family: var(--code-font);
+}
+
+/*position grid item in container*/
+#child-a {
+  grid-area: top-left;
+}
+
+#child-b {
+  grid-area: top-center;
+}
+
+#child-c {
+  grid-area: top-right;
+}
+
+#child-d {
+  grid-area: center-left;
+}
+
+#child-e {
+  grid-area: center-center;
+}
+
+#child-f {
+  grid-area: center-right;
+}
+
+#child-g {
+  grid-area: bottom-left;
+}
+
+#child-h {
+  grid-area: bottom-center;
+}
+
+#child-i {
+  grid-area: bottom-right;
 }
 
 /*grid justify-items example boxes*/
@@ -247,6 +284,50 @@ Code example boxes - properties
 
 .grid-justify-stretch {
   justify-items: stretch;
+}
+
+/*change backgorund colour by row to easier see the alignment*/
+.grid-justify-row1 {
+  background-color: red;
+}
+
+.grid-justify-row2 {
+  background-color: green;
+}
+
+.grid-justify-row3 {
+  background-color: blue;
+}
+
+/*grid align-items example boxes*/
+
+.grid-align-start {
+  align-items: start;
+}
+
+.grid-align-end {
+  align-items: end;
+}
+
+.grid-align-center {
+  align-items: center;
+}
+
+.grid-align-stretch {
+  align-items: stretch;
+}
+
+/*change backgorund colour by column to easier see the alignment*/
+.grid-align-col1 {
+  background-color: red;
+}
+
+.grid-align-col2 {
+  background-color: green;
+}
+
+.grid-align-col3 {
+  background-color: blue;
 }
 
 /*=====
@@ -293,7 +374,6 @@ Responsiveness
 /*Media queries for larger monitor views*/
 
 @media only screen and (min-width: 1024px) {
-
   body {
     grid-template-columns: 20% 1fr;
     grid-template-areas:
@@ -314,12 +394,10 @@ Responsiveness
   .backtotop {
     display: none;
   }
-
 }
 /*Media queries for print view*/
 
 @media print {
-
 }
 /*=============
 Accessibility
