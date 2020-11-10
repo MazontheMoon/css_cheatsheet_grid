@@ -8,7 +8,10 @@ Declare variables for page
 :root {
   /*color scheme*/
 
-  /*fonts*/
+  /*font and text*/
+  --header-text-font: "Trebuchet MS", cursive;
+  --text-font:  Verdana, sans-serif;
+  --code-font:  monospace;
 }
 
 /*======================================
@@ -137,7 +140,7 @@ nav {
 Section Styling
 ================*/
 
-/**/
+/*container boxes*/
 main {
   grid-area: content;
   /* to test layout placement */
@@ -193,6 +196,57 @@ main {
 
 .property-value-list {
 
+}
+
+/*==============================
+Code example boxes - properties
+================================*/
+/*code example - figure container box*/
+.grid-figure {
+  margin: 0;
+  padding: 0;
+}
+
+/*grid container*/
+.grid-figure-box {
+  width: 200px;
+  height: 200px;
+  border: solid black 3px;
+  background-color: grey;
+  display: grid;
+  grid-template-columns: repeat (3 1fr);
+  grid-template-rows: repeat (3 1fr);
+  grid-gap: 3px;
+}
+
+/*grid item in container*/
+.grid-figure-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1px;
+  border: solid 1px white;
+  background-color: black;
+  color: white;
+  font-family: var(--code-font);
+}
+
+/*grid justify-items example boxes*/
+
+.grid-justify-start {
+  justify-items: start;
+}
+
+.grid-justify-end {
+  justify-items: end;
+}
+
+.grid-justify-center {
+  justify-items: center;
+}
+
+.grid-justify-stretch {
+  justify-items: stretch;
 }
 
 /*=====
