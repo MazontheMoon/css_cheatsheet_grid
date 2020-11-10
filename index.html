@@ -266,6 +266,7 @@ Finding your way around
             <p>The shorthand for for setting <span class="code-word">grid-template-rows</span>, <span class="code-word">grid-template-columns</span>, and <span class="code-word">grid-template-areas</span> is <span class="code-word">grid-template</span>.</p>
             <p>So this...</p>
             <code class="code-box">.container {<br>
+              display: grid;<br>
               grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];<br>
               grid-template-columns: auto 50px auto;<br>
               grid-template-areas:<br>
@@ -274,6 +275,7 @@ Finding your way around
               }</code>
             <p>can instead be written as...</p>
             <code class="code-box">.container { <br>
+              display: grid;<br>
               grid-template:<br>
               [row1-start] "header header header" 25px [row1-end]<br>
               [row2-start] "footer footer footer" 25px [row2-end]<br>
@@ -286,6 +288,7 @@ Finding your way around
             <h5 class="sub-heading-text">Column Gap &amp; Row Gap</h5>
             <p>This specifies the size of the grid lines... the space between the grid cells. It is only applied between cells (not the outside edges)</p>
             <code class="code-box">.container { <br>
+              display: grid;<br>
               grid-template-columns: 100px auto 100px;<br>
               grid-template-rows: 50px 50% 50px; <br>
               column-gap: 10px;<br>
@@ -295,14 +298,16 @@ Finding your way around
           <!--Grid Container - grid-gap property-->
           <div id="container-grid-gap" class="section-subsection-content-info">
             <h5 class="sub-heading-text">Grid Gap</h5>
-            <p>You woudl be correct if you guessed that <span class="code-word">grid-gap</span> was the shorthand for <span class="code-word">column-gap</span> and <span class="code-word">row-gap</span>.</p>
+            <p>You would be correct if you guessed that <span class="code-word">grid-gap</span> was the shorthand for <span class="code-word">column-gap</span> and <span class="code-word">row-gap</span>.</p>
             <code class="code-box">.container { <br>
+              display: grid;<br>
               grid-template-columns: 100px auto 100px;<br>
               grid-template-rows: 50px 50% 50px; <br>
               grid-gap: 10px 10px;<br>
               }</code>
             <p>or...</p>
             <code class="code-box">.container { <br>
+              display: grid;<br>
               grid-template-columns: 100px auto 100px;<br>
               grid-template-rows: 50px 50% 50px; <br>
               grid-gap: 10px;<br>
@@ -312,8 +317,61 @@ Finding your way around
           <!--Grid Container - grid-justify-items property-->
           <div id="container-grid-justify-items" class="section-subsection-content-info">
             <h5 class="sub-heading-text">Justify Items</h5>
-            <p></p>
-            <code class="code-box"></code>
+            <p>To align <span class="look-at-me-text">grid-items</span> along the <span class="look-at-me-text">row</span> axis we use <span class="code-word">justify-items </span>.</p>
+            <p>The values that can be set are:</p>
+            <ul class="property-value-list">
+              <li>start</li>
+              <li>end</li>
+              <li>center</li>
+              <li>stretch</li>
+            </ul>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-columns: 100px auto 100px;<br>
+              grid-template-rows: 50px 50% 50px; <br>
+              grid-gap: 10px;<br>
+              justify-items: center;<br>
+              }</code>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify at default</figcaption>
+              <div class="grid-figure-box">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">start</span> </figcaption>
+              <div class="grid-figure-box grid-justify-start">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">end</span> </figcaption>
+              <div class="grid-figure-box grid-justify-end">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">center</span> </figcaption>
+              <div class="grid-figure-box grid-justify-center">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">stretch</span> </figcaption>
+              <div class="grid-figure-box grid-justify-stretch">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+              </div>
+            </figure>
           </div>
           <!--Grid Container - align-item property-->
           <div id="container-grid-align-items" class="section-subsection-content-info">
