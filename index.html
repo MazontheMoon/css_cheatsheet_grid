@@ -258,7 +258,7 @@ Finding your way around
               grid-area: footer;<br>
               }</code>
             <p>Each row needs to have the same number of cells!!!</p>
-            <p>When using <span class="code-word">grid-template-areas</span> the <span class="look-at-me-text">grid-lines</span> are automatically named, for example for the grid area named <span class="look-at-me-text">header</span> the name of the area’s starting row line and starting column line will be <span class="look-at-me-text">header-start</span> and the name of its last row line and last column line will be <span class="look-at-me-text">header-end</span> (some lines might have multiple names).<p>
+            <p>When using <span class="code-word">grid-template-areas</span> the <span class="look-at-me-text">grid-lines</span> are automatically named, for example for the grid area named <span class="look-at-me-text">header</span> the name of the area’s starting row line and starting column line will be <span class="look-at-me-text">header-start</span> and the name of its last row line and last column line will be <span class="look-at-me-text">header-end</span> (some lines might have multiple names).</p>
           </div>
           <!--Grid Container - grid-template property-->
           <div id="container-grid-temp" class="section-subsection-content-info">
@@ -519,20 +519,195 @@ Finding your way around
           <!--Grid Container - grid-justify-content property-->
           <div id="container-grid-justify-content" class="section-subsection-content-info">
             <h5 class="sub-heading-text">Justify Content</h5>
-            <p></p>
-            <code class="code-box"></code>
+            <p>We use <span class="code-word">justify-content</span> (and the upcoming <span class="code-word">align-content</span>) to align the grid along the <span class="look-at-me-text">row</span> (inline) axis when the total size of the grid is smaller than the grid container itself...such as can happen if the <span class="look-at-me-text">grid-items</span> are a fixed size.</p>
+            <p>The values that can be set are:</p>
+            <ul class="property-value-list">
+              <li>start</li>
+              <li>end</li>
+              <li>center</li>
+              <li>stretch</li>
+              <li>space-around</li>
+              <li>space-between</li>
+              <li>space-evenly</li>
+            </ul>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-columns: 100px auto 100px;<br>
+              grid-template-rows: 50px 50% 50px; <br>
+              grid-gap: 10px;<br>
+              justify-content: center;<br>
+              }</code>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">start</span> </figcaption>
+              <div class="grid-figure-box-row grid-justify-content-start">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">end</span> </figcaption>
+              <div class="grid-figure-box-row grid-justify-content-end">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">center</span> </figcaption>
+              <div class="grid-figure-box-row grid-justify-content-center">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">stretch</span> </figcaption>
+              <div class="grid-figure-box-row grid-justify-content-stretch">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-around</span> </figcaption>
+              <div class="grid-figure-box-row grid-justify-content-space-around">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-between</span> </figcaption>
+              <div class="grid-figure-box-row grid-justify-content-space-between">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-evenly</span> </figcaption>
+              <div class="grid-figure-box-row grid-justify-content-space-evenly">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
           </div>
           <!--Grid Container - align-content property-->
           <div id="container-grid-align-content" class="section-subsection-content-info">
             <h5 class="sub-heading-text">Align Content</h5>
-            <p></p>
-            <code class="code-box"></code>
+            <p>Similar to <span class="code-word">justify-content</span> we use <span class="code-word">align-content</span>) to align the grid along the <span class="look-at-me-text">column</span> (block) axis.</p>
+            <p>The values that can be set are the same as used with <span class="code-word">justify-content</span>:</p>
+            <ul class="property-value-list">
+              <li>start</li>
+              <li>end</li>
+              <li>center</li>
+              <li>stretch</li>
+              <li>space-around</li>
+              <li>space-between</li>
+              <li>space-evenly</li>
+            </ul>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-columns: 100px auto 100px;<br>
+              grid-template-rows: 50px 50% 50px; <br>
+              grid-gap: 10px;<br>
+              align-content: center;<br>
+              }</code>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...align <span class="look-at-me-text">start</span> </figcaption>
+              <div class="grid-figure-box-row grid-align-content-start">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...align <span class="look-at-me-text">end</span> </figcaption>
+              <div class="grid-figure-box-row grid-align-content-end">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...align <span class="look-at-me-text">center</span> </figcaption>
+              <div class="grid-figure-box-row grid-align-content-center">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...align <span class="look-at-me-text">stretch</span> </figcaption>
+              <div class="grid-figure-box-row grid-align-content-stretch">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...align <span class="look-at-me-text">space-around</span> </figcaption>
+              <div class="grid-figure-box-row grid-align-content-space-around">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...align <span class="look-at-me-text">space-between</span> </figcaption>
+              <div class="grid-figure-box-row grid-align-content-space-between">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...align <span class="look-at-me-text">space-evenly</span> </figcaption>
+              <div class="grid-figure-box-row grid-align-content-space-evenly">
+                <div class="grid-figure-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+                <div class="grid-figure-child">IV</div>
+              </div>
+            </figure>
           </div>
           <!--Grid Container - place-content property-->
           <div id="container-grid-place-content" class="section-subsection-content-info">
             <h5 class="sub-heading-text">Place Content</h5>
-            <p></p>
-            <code class="code-box"></code>
+            <p>The shorthand for <span class="code-word">justify-content</span> and <span class="code-word">align-content</span> is...you've guessed coorectly yet again...it is...<span class="code-word">place-content</span>!</p>
+            <p>Instead of...</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-columns: 100px auto 100px;<br>
+              grid-template-rows: 50px 50% 50px; <br>
+              grid-gap: 10px;<br>
+              justify-content: center;<br>
+              align-content: center;<br>
+              }</code>
+            <p>You can use...</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-columns: 100px auto 100px;<br>
+              grid-template-rows: 50px 50% 50px; <br>
+              grid-gap: 10px;<br>
+              place-content: center stretch;<br>
+              }</code>
+            <p>The first value is for <span class="code-word">align-content</span> and the second for <span class="code-word">justify-content</span>...although if you set only one value both will use it <span class="code-word">place-content: center;</span></p>
           </div>
           <!--Grid Container - grid-auto-columns property-->
           <div id="container-grid-auto-col" class="section-subsection-content-info">

@@ -77,6 +77,7 @@ dd {
   /* to test layout placement */
   border: solid 3px seagreen;
 }
+
 /*================
 Layout
 =================*/
@@ -217,12 +218,12 @@ Code example boxes - properties
     "top-left top-center top-right"
     "center-left center-center center-right"
     "bottom-left bottom-center bottom-right";
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 0;
 }
 
-/*grid item in container*/
+/*grid item in container- no set seize*/
 .grid-figure-child {
   margin: 0;
   border: solid 1px white;
@@ -268,6 +269,32 @@ Code example boxes - properties
   grid-area: bottom-right;
 }
 
+/*change backgorund colour by row to easier see the alignment*/
+.grid-justify-row1 {
+  background-color: red;
+}
+
+.grid-justify-row2 {
+  background-color: green;
+}
+
+.grid-justify-row3 {
+  background-color: blue;
+}
+
+/*change backgorund colour by column to easier see the alignment*/
+.grid-align-col1 {
+  background-color: red;
+}
+
+.grid-align-col2 {
+  background-color: green;
+}
+
+.grid-align-col3 {
+  background-color: blue;
+}
+
 /*grid justify-items example boxes*/
 
 .grid-justify-start {
@@ -284,19 +311,6 @@ Code example boxes - properties
 
 .grid-justify-stretch {
   justify-items: stretch;
-}
-
-/*change backgorund colour by row to easier see the alignment*/
-.grid-justify-row1 {
-  background-color: red;
-}
-
-.grid-justify-row2 {
-  background-color: green;
-}
-
-.grid-justify-row3 {
-  background-color: blue;
 }
 
 /*grid align-items example boxes*/
@@ -317,17 +331,74 @@ Code example boxes - properties
   align-items: stretch;
 }
 
-/*change backgorund colour by column to easier see the alignment*/
-.grid-align-col1 {
-  background-color: red;
+/*new smaller grid with fixed size columns and rows to show justify-content and align-content examples */
+
+.grid-figure-box-row {
+  width: 150px;
+  height: 150px;
+  border: solid black 3px;
+  background-color: grey;
+  display: grid;
+  grid-template-columns: 50px 50px;
+  grid-template-rows: 50px 50px;
 }
 
-.grid-align-col2 {
-  background-color: green;
+/*grid justify-content example boxes*/
+.grid-justify-content-start {
+  justify-content: start;
 }
 
-.grid-align-col3 {
-  background-color: blue;
+.grid-justify-content-end {
+  justify-content: end;
+}
+
+.grid-justify-content-center {
+  justify-content: center;
+}
+
+.grid-justify-content-stretch {
+  justify-content: stretch;
+}
+
+.grid-justify-content-space-around {
+  justify-content: space-around;
+}
+
+.grid-justify-content-space-between {
+  justify-content: space-between;
+}
+
+.grid-justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+/*grid align-content example boxes*/
+.grid-align-content-start {
+  align-content: start;
+}
+
+.grid-align-content-end {
+  align-content: end;
+}
+
+.grid-align-content-center {
+  align-content: center;
+}
+
+.grid-align-content-stretch {
+  align-content: stretch;
+}
+
+.grid-align-content-space-around {
+  align-content: space-around;
+}
+
+.grid-align-content-space-between {
+  align-content: space-between;
+}
+
+.grid-align-content-space-evenly {
+  align-content: space-evenly;
 }
 
 /*=====
