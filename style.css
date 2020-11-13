@@ -50,8 +50,7 @@ dd {
 
 /*code word or snippet in the middle of normal text*/
 .code-word {
-  background-color: black;
-  color: white;
+  color: red;
   padding: 0.4rem;
 }
 
@@ -225,6 +224,9 @@ Code example boxes - properties
 
 /*grid item in container- no set seize*/
 .grid-figure-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   border: solid 1px white;
   background-color: black;
@@ -399,6 +401,57 @@ Code example boxes - properties
 
 .grid-align-content-space-evenly {
   align-content: space-evenly;
+}
+
+/*implicit grid container box*/
+
+.grid-figure-implicit {
+  width: 150px;
+  height: 150px;
+  border: solid black 3px;
+  background-color: grey;
+  display: grid;
+}
+
+/*implicit grid container children - different widths*/
+
+.implicit-narrow-child {
+  grid-column: 3 / 4;
+}
+
+.implicit-average-child {
+  grid-column: 2 / 3;
+}
+
+.implicit-wide-child {
+  grid-column: 1 / 3;
+}
+
+/*implicit grid - grid-template-columns  example boxes*/
+
+.implicit-grid-auto {
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
+}
+
+.implicit-grid-fr {
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.implicit-grid-per {
+  grid-auto-columns: 25%;
+  grid-auto-rows: 25%;
+}
+
+.implicit-grid-min-content {
+  grid-auto-columns: min-content;
+  grid-auto-rows: min-content;
+}
+
+.implicit-grid-minmax {
+  grid-auto-columns: minmax (mincontent, auto);
+  grid-auto-rows: minmax (mincontent, auto);
 }
 
 /*=====
