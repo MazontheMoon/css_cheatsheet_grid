@@ -144,7 +144,7 @@ Finding your way around
               <li><a href="#container-grid-align-content">align-content</a></li>
               <li><a href="#container-grid-place-content">place-content</a></li>
               <li><a href="#container-grid-auto-col">grid-auto-columns</a></li>
-              <li><a href="#container-grid-auto-row">grid-auto-rows</a></li>
+              <li><a href="#container-grid-auto-col">grid-auto-rows</a></li>
               <li><a href="#container-grid-auto-flow">grid-auto-flow</a></li>
               <li><a href="#container-grid">grid</a></li>
             </ul>
@@ -285,6 +285,7 @@ Finding your way around
               [row2-start] "footer footer footer" 25px [row2-end]<br>
               / auto 50px auto;<br>
               }</code>
+            <p>The order is <span class="code-word">grid-template: rows / columns;</span></p>
             <p>However, <span class="code-word">grid</span> (coming up soon) is used more often than <span class="code-word">grid-template</span>.</p>
           </div>
           <!--Grid Container - grid-column-gap & grid-row-gap properties-->
@@ -694,15 +695,55 @@ Finding your way around
           </div>
           <!--Grid Container - grid-auto-columns property-->
           <div id="container-grid-auto-col" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Grid Auto Columns</h5>
-            <p></p>
-            <code class="code-box"></code>
-          </div>
-          <!--Grid Container - grid-auto-rows property-->
-          <div id="container-grid-auto-row" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Grid Auto Rows</h5>
-            <p></p>
-            <code class="code-box"></code>
+            <h5 class="sub-heading-text">Grid Auto Columns and Auto Rows</h5>
+            <p>All of the grids so far have been <span class="look-at-me-text">explicit grids</span> in that they are manually defined with set rowns or columns.</p>
+            <p>We are now going to look at <span class="look-at-me-text">implicit grids</span>. If a grid item is positioned into a column that is not explicitly sized by <span class="code-word"> grid-template-columns </span>, or <span class="code-word"> grid-template-rows </span>implicit grid tracks are created to hold it.</p>
+            <p>The values we can set for <span class="code-word">grid-auto-columns</span> or <span class="code-word"> grid-template-rows</span> are the same as used for and <span class="code-word">grid-template-rows</span>... length (px or rem , etc.), fraction (fr), percentage (%), minmax(), auto...and ones I have mentioned yet...min-content and fit-content!</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-auto-columns: minmax(25px, auto);<br>
+              grid-auto-rows: min-content;
+              }</code>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...<span class="look-at-me-text">auto</span> value</figcaption>
+              <div class="grid-figure-implicit implicit-grid-auto">
+                <div class="grid-figure-child implicit-narrow-child">II</div>
+                <div class="grid-figure-child implicit-average-child">IIII</div>
+                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">(fr)actions</span> value</figcaption>
+              <div class="grid-figure-implicit implicit-grid-fr">
+                <div class="grid-figure-child implicit-narrow-child">II</div>
+                <div class="grid-figure-child implicit-average-child">IIII</div>
+                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">percentages</span> value</figcaption>
+              <div class="grid-figure-implicit implicit-grid-per">
+                <div class="grid-figure-child implicit-narrow-child">II</div>
+                <div class="grid-figure-child implicit-average-child">IIII</div>
+                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">minmax</span> value</figcaption>
+              <div class="grid-figure-implicit implicit-grid-minmax">
+                <div class="grid-figure-child implicit-narrow-child">II</div>
+                <div class="grid-figure-child implicit-average-child">IIII</div>
+                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">min-content</span> value</figcaption>
+              <div class="grid-figure-implicit implicit-grid-min-content">
+                <div class="grid-figure-child implicit-narrow-child">II</div>
+                <div class="grid-figure-child implicit-average-child">IIII</div>
+                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+              </div>
+            </figure>
           </div>
           <!--Grid Container - grid-auto-flow property-->
           <div id="container-grid-auto-flow" class="section-subsection-content-info">
