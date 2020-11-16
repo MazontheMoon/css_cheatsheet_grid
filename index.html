@@ -748,14 +748,121 @@ Finding your way around
           <!--Grid Container - grid-auto-flow property-->
           <div id="container-grid-auto-flow" class="section-subsection-content-info">
             <h5 class="sub-heading-text">Grid Auto Flow</h5>
-            <p></p>
-            <code class="code-box"></code>
+            <p>So as well as not <span class="look-at-me-text">explicitly</span> defining the columns and rows in the grid (and <span class="code-word">grid-auto-columns</span> &amp; <span class="code-word">grid-auto-rows</span> come into play), there is also what happens when <span class="code-word">grid-items</span> are not explicitly placed which leads us to... <span class="code-word">auto-placement algorithm</span> which, as the name might kinda give away, is dictating how items are automatically placed in the grid.</p>
+            <p>The values that can be set are:</p>
+            <ul class="property-value-list">
+              <li>row</li>
+              <li>column</li>
+              <li>dense</li>
+            </ul>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-columns: 100px auto 100px;<br>
+              grid-template-rows: 50px 50% 50px; <br>
+              grid-auto-flow: column;
+              grid-gap: 10px;<br>
+              }</code>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">row</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set positions) </figcaption>
+              <div class="grid-figure-box grid-auto-flow-row">
+                <div class="grid-figure-child implicit-wide-child">Alpha</div>
+                <div class="grid-figure-child">Beta</div>
+                <div class="grid-figure-child">Charlie</div>
+                <div class="grid-figure-child implicit-narrow-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">column</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set positions) </figcaption>
+              <div class="grid-figure-box grid-auto-flow-col">
+                <div class="grid-figure-child implicit-wide-child">Alpha</div>
+                <div class="grid-figure-child">Beta</div>
+                <div class="grid-figure-child">Charlie</div>
+                <div class="grid-figure-child implicit-narrow-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+              </div>
+            </figure>
+            <figure class="grid-figure">
+              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">dense</span> layout (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set positions) </figcaption>
+              <div class="grid-figure-box grid-auto-flow-dense">
+                <div class="grid-figure-child implicit-wide-child">Alpha</div>
+                <div class="grid-figure-child">Beta</div>
+                <div class="grid-figure-child">Charlie</div>
+                <div class="grid-figure-child implicit-narrow-child">I</div>
+                <div class="grid-figure-child">II</div>
+                <div class="grid-figure-child">III</div>
+              </div>
+              <p>Using <span class="look-at-me-text">dense</span> only visually changes appearance so may be accessibility issues for content appearing out of order! </p>
+            </figure>
           </div>
           <!--Grid Container - grid property-->
           <div id="container-grid" class="section-subsection-content-info">
             <h5 class="sub-heading-text">Grid</h5>
-            <p></p>
-            <code class="code-box"></code>
+            <p>Now to put it <span class="really-look-at-me-text">ALL</span> together! <span class="code-word">grid</span> is the shorthand for setting...<span class="code-word">grid-template-rows</span>, <span class="code-word">grid-template-columns</span>, <span class="code-word">grid-template-areas</span>, <span class="code-word">grid-auto-rows</span>, <span class="code-word">grid-auto-columns</span>, and <span class="code-word">grid-auto-flow</span> all into a single declaration.</p>
+            <p>So....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-columns: 100px auto 100px;<br>
+              grid-template-rows: 50px 50% 50px; <br>
+              }</code>
+            <p>can also be written as....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid: 100px auto 100px / 50px 50% 50px;<br>
+              }</code>
+            <p>Or....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-auto-flow: row; <br>
+              grid-template-columns: 100px auto 100px;<br>
+              }</code>
+            <p>can also be written as....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid: auto-flow / 100px auto 100px;<br>
+              }</code>
+            <p>And even....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-auto-flow: row dense;<br>
+              grid-auto-rows: 100px;<br>
+              grid-template-columns: 1fr 2fr;<br>
+              }</code>
+            <p>can also be written as....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid: auto-flow dense 100px / 1fr 2fr;<br>
+              }</code>
+            <p>Similar to....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-rows: 100px 300px;<br>
+              grid-auto-flow: column;;<br>
+              grid-auto-columns: 200px;<br>
+              }</code>
+            <p>written as....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid: 100px 300px / auto-flow 200px;<br>
+              }</code>
+            <p>Now are you ready for this....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid-template-areas:<br>
+              "header header header" <br>
+              "main main main";<br>
+              grid-auto-flow: column;<br>
+              grid-auto-columns: 200px;<br>
+              }</code>
+            <p>written as....</p>
+            <code class="code-box">.container { <br>
+              display: grid;<br>
+              grid: [row1-start] "header header header" 1fr [row1-end]
+              [row2-start] "footer footer footer" 25px [row2-end]
+              / auto 50px auto;<br>
+              }</code>
           </div>
         </div>
         <!--section 3of4 How to use Grid subsection 2of2 Grid items-->
@@ -848,7 +955,7 @@ Finding your way around
       </header>
       <div class="section-content">
         <p><span class="really-look-at-me-text">Now let's make some grids!</span></p>
-        <p>Time to put everything together and show all the ways you can make a 3 x 3 grid in a 500px box! </p>
+        <p>Time to put everything together and make some grids!!</p>
       </div>
     </section>
 
