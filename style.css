@@ -189,17 +189,23 @@ main {
 }
 
 .section-subsection-content-list {
+  /* to test layout placement */
+  border: solid 3px pink;
 }
 
 .section-subsection-content-info {
+  /* to test layout placement */
+  border: solid 3px grey;
 }
 
 .property-value-list {
+  /* to test layout placement */
+  border: solid 3px purple;
 }
 
-/*==============================
-Code example boxes - properties
-================================*/
+/*============================================
+Code example boxes - Grid Container properties
+=============================================*/
 /*code example - figure container box*/
 .grid-figure {
   margin: 0;
@@ -467,6 +473,42 @@ Code example boxes - properties
 
 .grid-auto-flow-dense {
   grid-auto-flow: dense;
+}
+
+/*======================================
+Code example boxes - Grid Item properties
+========================================*/
+/*grid container*/
+.gitem-container-box {
+  width: 200px;
+  height: 200px;
+  border: solid black 3px;
+  background-color: grey;
+  display: grid;
+  grid-template-areas:
+    "top-left top-center top-right"
+    "center-left center-center center-right"
+    "bottom-left bottom-center bottom-right";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 0;
+}
+
+/*grid col/row start/end - span top row*/
+.gitem-example-toprow {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.gitem-example-toprow-auto {
+  grid-column-start: auto;
+}
+
+/*grid col/row start/end - span last column*/
+.gitem-example-lastcol {
+  grid-column-start: -1;
+  grid-row-start: 1;
+  grid-row-end: 4;
 }
 
 /*=====

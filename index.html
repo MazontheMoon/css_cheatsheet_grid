@@ -231,6 +231,17 @@ Finding your way around
               grid-template-columns: repeat(3, 1fr [col1]);<br>
               grid-template-rows: repeat (3 1fr);<br>
               }</code>
+            <p>There is some extra magic we can use with <span class="look-at-me-text">repeat()</span>...<span class="look-at-me-text">auto-fit</span> and <span class="look-at-me-text">auto-fill</span>.</p>
+            <code class="code-box">.container {<br>
+              display: grid;<br>
+              grid-template-columns: repeat(auto-fit, 200px);<br>
+              }</code>
+            <p>Using <span class="look-at-me-text">auto-fit</span> will add extra columns but if no content will size as 0 so no extra blank space shows.</p>
+            <code class="code-box">.container {<br>
+              display: grid;<br>
+              grid-template-columns: repeat(auto-fill, 200px);<br>
+              }</code>
+            <p>Using <span class="look-at-me-text">auto-fill</span> will add extra columns with no content, but shows as blank space.</p>
           </div>
           <!--Grid Container - grid-template-area property-->
           <div id="container-grid-temp-area" class="section-subsection-content-info">
@@ -763,7 +774,7 @@ Finding your way around
               grid-gap: 10px;<br>
               }</code>
             <figure class="grid-figure">
-              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">row</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set positions) </figcaption>
+              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">row</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
               <div class="grid-figure-box grid-auto-flow-row">
                 <div class="grid-figure-child implicit-wide-child">Alpha</div>
                 <div class="grid-figure-child">Beta</div>
@@ -774,7 +785,7 @@ Finding your way around
               </div>
             </figure>
             <figure class="grid-figure">
-              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">column</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set positions) </figcaption>
+              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">column</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
               <div class="grid-figure-box grid-auto-flow-col">
                 <div class="grid-figure-child implicit-wide-child">Alpha</div>
                 <div class="grid-figure-child">Beta</div>
@@ -785,7 +796,7 @@ Finding your way around
               </div>
             </figure>
             <figure class="grid-figure">
-              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">dense</span> layout (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set positions) </figcaption>
+              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">dense</span> layout (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
               <div class="grid-figure-box grid-auto-flow-dense">
                 <div class="grid-figure-child implicit-wide-child">Alpha</div>
                 <div class="grid-figure-child">Beta</div>
@@ -839,7 +850,7 @@ Finding your way around
             <code class="code-box">.container { <br>
               display: grid;<br>
               grid-template-rows: 100px 300px;<br>
-              grid-auto-flow: column;;<br>
+              grid-auto-flow: column;<br>
               grid-auto-columns: 200px;<br>
               }</code>
             <p>written as....</p>
@@ -871,52 +882,109 @@ Finding your way around
             <h5>Grid Items</h5>
           </div>
           <div class="section-subsection-content">
-            <p>Properties for the grid items (grid children)...</p>
+            <p>Now that we have out grid container created we wil look a bit closer at the <span class="look-at-me-text">grid items</span> (grid children) we will be placing in the grid.</p>
+            <p>Properties for the grid items...</p>
             <ul class="section-subsection-content-list">
-              <li><a href="#gitem-grid-col-start">grid-column-start</a></li>
-              <li><a href="#gitem-grid-col-end">grid-column-end</a></li>
-              <li><a href="#gitem-grid-row-start">grid-row-start</a></li>
-              <li><a href="#gitem-grid-row-end">grid-row-end</a></li>
-              <li><a href="#gitem-grid-col">grid-column</a></li>
-              <li><a href="#gitem-grid-row">grid-row</a></li>
+              <li><a href="#gitem-grid-col-row-start-end">grid-column-start</a></li>
+              <li><a href="#gitem-grid-col-row-start-end">grid-column-end</a></li>
+              <li><a href="#gitem-grid-col-row-start-end">grid-row-start</a></li>
+              <li><a href="#gitem-grid-col-row-start-end">grid-row-end</a></li>
+              <li><a href="#gitem-grid-col-row">grid-column</a></li>
+              <li><a href="#gitem-grid-col-row">grid-row</a></li>
               <li><a href="#gitem-grid-area">grid-area</a></li>
               <li><a href="#gitem-grid-justify-self">justify-self</a></li>
               <li><a href="#gitem-grid-align-self">align-self</a></li>
               <li><a href="#gitem-grid-place-self">place-self</a></li>
             </ul>
-            <!--Grid Item - grid-column-start property-->
-            <div id="gitem-grid-col-start" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Column Start</h5>
-              <p></p>
-              <code class="code-box"></code>
+            <p>It will be a 3 x 3 grid used for examples with named lines as follows:</p>
+            <p><span class="look-at-me-text">&quot;top-left ... top-center-left ... top-center-right ... top-right&quot;</span></p>
+            <p><span class="look-at-me-text">&quot;center-left ... center-center-left ... center-center-right ... center-right&quot;</span></p>
+            <p><span class="look-at-me-text">&quot;bottom-left ... bottom-center-left ... bottom-center-right ... bottom-right&quot;</span></p>
+            <!--Grid Item - grid-column-start, grid-column-end, grid-row-start and grid-row-end property-->
+            <div id="gitem-grid-col-row-start-end" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Column Start &amp; End and Row Start &amp; End</h5>
+              <p>We use these properties when we want to place a grid-item in the grid by choosing the column or row start line and the column or row end line.</p>
+              <p>The values that can be set are:</p>
+              <ul class="property-value-list">
+                <li>line - number</li>
+                <li>line - name</li>
+                <li>span - number</li>
+                <li>spam - name</li>
+                <li>auto</li>
+              </ul>
+              <figure class="grid-figure">
+                <figcaption>Set the <span class="look-at-me-text">grid item</span> to take up the entire top row.</figcaption>
+                <div class="gitem-container-box">
+                  <div class="grid-figure-child gitem-example-toprow">I am an item!</div>
+                </div>
+              </figure>
+              <p>There are a few ways we can do this...starting with the line numbers</p>
+              <code class="code-box">.item {
+                grid-column-start: 1;<br>
+                grid-column-end: 4;<br>
+                }</code>
+              <p>or the negative line numbers...</p>
+              <code class="code-box">.item {
+                grid-column-start: -1;<br>
+                grid-column-end: -4;<br>
+                }</code>
+              <p>or the line numbers...with span</p>
+              <code class="code-box">.item {
+                grid-column-start: 1;<br>
+                grid-column-end: span 3;<br>
+                }</code>
+              <p>or the line names...</p>
+              <code class="code-box">.item {
+                grid-column-start: top-left;<br>
+                grid-column-end: span bottom-left;<br>
+                }</code>
+              <p>If you use <span class="look-at-me-text">auto</span> it sets the item to use an automatic span or placement (default span is 1).</p>
+              <code class="code-box">.item {
+                grid-column-start: auto;<br>
+                }</code>
+              <figure class="grid-figure">
+                <figcaption>Set the <span class="look-at-me-text">grid item</span> to use <span class="look-at-me-text">auto</span>...</figcaption>
+                <div class="gitem-container-box">
+                  <div class="grid-figure-child gitem-example-toprow-auto">I am an item!</div>
+                </div>
+              </figure>
+              <p>And for the other direction...</p>
+              <figure class="grid-figure">
+                <figcaption>Set the <span class="look-at-me-text">grid item</span> to take up the entire last column.</figcaption>
+                <div class="gitem-container-box">
+                  <div class="grid-figure-child gitem-example-lastcol">I am an item!</div>
+                </div>
+              </figure>
+              <p>There are a few ways we can do this...starting with the line numbers</p>
+              <code class="code-box">.item {
+                grid-column-start: -1;<br>
+                grid-row-start: 1;<br>
+                grid-row-end: 4;<br>
+                }</code>
+              <p>or the negative line numbers...</p>
+              <code class="code-box">.item {
+                grid-column-start: -1;<br>
+                grid-row-start: -4;<br>
+                grid-row-end: -1;<br>
+                }</code>
+              <p>or the line numbers...with span</p>
+              <code class="code-box">.item {
+                grid-column-start: -1;<br>
+                grid-row-start: 1;<br>
+                grid-row-end: span 3;<br>
+                }</code>
+              <p>or the line names...</p>
+              <code class="code-box">.item {
+                grid-column-start: top-right;<br>
+                grid-row-start: top-right;<br>
+                grid-row-end: span bottom-right;<br>
+                }</code>
+              <p>If the <span class="code-word">column-end</span> or <span class="code-word">row-end</span> is not specified the item will span 1 track.</p>
+              <p>Items can overlap too (use <span class="look-at-me-text">z-index</span> for stacking order).</p>
             </div>
-            <!--Grid Item - grid-column-end property-->
-            <div id="gitem-grid-col-end" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Column End</h5>
-              <p></p>
-              <code class="code-box"></code>
-            </div>
-            <!--Grid Item - grid-row-start property-->
-            <div id="gitem-grid-row-start" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Row Start</h5>
-              <p></p>
-              <code class="code-box"></code>
-            </div>
-            <!--Grid Item - grid-row-end property-->
-            <div id="gitem-grid-row-end" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Row End</h5>
-              <p></p>
-              <code class="code-box"></code>
-            </div>
-            <!--Grid Item - grid-col property-->
-            <div id="gitem-grid-col" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Column</h5>
-              <p></p>
-              <code class="code-box"></code>
-            </div>
-            <!--Grid Item - grid-row property-->
-            <div id="gitem-grid-row" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Row</h5>
+            <!--Grid Item - grid-column and grid-row property-->
+            <div id="gitem-grid-col-row" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Column and Row</h5>
               <p></p>
               <code class="code-box"></code>
             </div>
