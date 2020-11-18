@@ -919,27 +919,27 @@ Finding your way around
                 </div>
               </figure>
               <p>There are a few ways we can do this...starting with the line numbers</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: 1;<br>
                 grid-column-end: 4;<br>
                 }</code>
               <p>or the negative line numbers...</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: -1;<br>
                 grid-column-end: -4;<br>
                 }</code>
               <p>or the line numbers...with span</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: 1;<br>
                 grid-column-end: span 3;<br>
                 }</code>
               <p>or the line names...</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: top-left;<br>
                 grid-column-end: span bottom-left;<br>
                 }</code>
               <p>If you use <span class="look-at-me-text">auto</span> it sets the item to use an automatic span or placement (default span is 1).</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: auto;<br>
                 }</code>
               <figure class="grid-figure">
@@ -956,25 +956,25 @@ Finding your way around
                 </div>
               </figure>
               <p>There are a few ways we can do this...starting with the line numbers</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: -1;<br>
                 grid-row-start: 1;<br>
                 grid-row-end: 4;<br>
                 }</code>
               <p>or the negative line numbers...</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: -1;<br>
                 grid-row-start: -4;<br>
                 grid-row-end: -1;<br>
                 }</code>
               <p>or the line numbers...with span</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: -1;<br>
                 grid-row-start: 1;<br>
                 grid-row-end: span 3;<br>
                 }</code>
               <p>or the line names...</p>
-              <code class="code-box">.item {
+              <code class="code-box">.item {<br>
                 grid-column-start: top-right;<br>
                 grid-row-start: top-right;<br>
                 grid-row-end: span bottom-right;<br>
@@ -985,26 +985,114 @@ Finding your way around
             <!--Grid Item - grid-column and grid-row property-->
             <div id="gitem-grid-col-row" class="section-subsection-content-info">
               <h5 class="sub-heading-text">Grid Column and Row</h5>
-              <p></p>
+              <p>Guess what....there is a shorthand for <span class="code-word">grid-column-start</span> &amp; <span class="code-word">grid-column-end</span> and <span class="code-word">grid-row-start</span> &amp; <span class="code-word">grid-row-end</span> which is....you guessed it...<span class="code-word">grid-column</span> and <span class="code-word">grid-row</span>!!</p>
+              <p>So...</p>
+              <code class="code-box">.item { <br>
+                grid-column-start: 1;<br>
+                grid-column-end: span 3;<br>
+                grid-row-start: 1;<br>
+                grid-row-end: 4;<br>
+                }</code>
+              <p>can be written as...</p>
+              <code class="code-box">.item { <br>
+                grid-column: 1 / span 3;<br>
+                grid-row: 1 / 4;<br>
+                }</code>
               <code class="code-box"></code>
             </div>
             <!--Grid Item - grid-area property-->
             <div id="gitem-grid-area" class="section-subsection-content-info">
               <h5 class="sub-heading-text">Grid Area</h5>
-              <p></p>
-              <code class="code-box"></code>
+              <p>There are two ways that <span class="code-word">grid-area</span> can be used:</p>
+              <ol>
+                <li>An even shorter shorthand for <span class="code-word">grid-column-start</span> &amp; <span class="code-word">grid-column-end</span> and <span class="code-word">grid-row-start</span> &amp; <span class="code-word">grid-row-end</span></li>
+                <li>To give an item a name so it can be used hand in hand with named sections of the grid created with <span class="code-word">grid-template-areas</span></li>
+              </ol>
+              <p>So using short-shorthand means that...</p>
+              <code class="code-box">.item { <br>
+                grid-column-start: 1;<br>
+                grid-column-end: span 3;<br>
+                grid-row-start: 1;<br>
+                grid-row-end: 4;<br>
+                }</code>
+              <p>instead of being written as...</p>
+              <code class="code-box">.item { <br>
+                grid-column: 1 / span 3;<br>
+                grid-row: 1 / 4;<br>
+                }</code>
+              <p>is written as...</p>
+              <code class="code-box">.item { <br>
+                <span class="look-at-me-text">/* row-start / column-start / row-end / column-end */</span> <br>
+                grid-area: 1 / 1 / 4 / span 3;<br>
+                }</code>
+              <p>BUT...my prefered method would be using it this way...</p>
+              <code class="code-box">.container {<br>
+                display: grid;<br>
+                grid-template-areas:<br>
+                "header header header"<br>
+                "nav main main" <br>
+                "footer footer footer"; <br>
+                grid-template-columns: repeat(3 1fr);<br>
+                grid-template-rows: auto;<br>
+                }<br>
+                <br>
+                header {<br>
+                grid-area: header;<br>
+                }<br>
+                <br>
+                nav {<br>
+                grid-area: nav;<br>
+                }<br>
+                <br>
+                main {<br>
+                grid-area: main;<br>
+                }<br>
+                <br>
+                footer {<br>
+                grid-area: footer;<br>
+                }</code>
             </div>
             <!--Grid Item - grid-justify-self property-->
             <div id="gitem-grid-justify-self" class="section-subsection-content-info">
               <h5 class="sub-heading-text">Justify Self</h5>
-              <p></p>
-              <code class="code-box"></code>
+              <p>This applies only the grid item in a single cell and is used to align along the <span class="look-at-me-text">row</span> (inline) axis</p>
+              <p>The values that can be set are:</p>
+              <ul class="property-value-list">
+                <li>start</li>
+                <li>end</li>
+                <li>center</li>
+                <li>stretch</li>
+              </ul>
+              <code class="code-box">.item { <br>
+                justify-self: center;<br>
+                }</code>
             </div>
             <!--Grid Item - grid-align-self property-->
             <div id="gitem-grid-align-self" class="section-subsection-content-info">
               <h5 class="sub-heading-text">Align Self</h5>
-              <p></p>
-              <code class="code-box"></code>
+              <p>Using <span class="code-word">justify-self</span> aligns along the <span class="look-at-me-text">row</span> (inline) axis and <span class="code-word">align-self</span> aligns along the <span class="look-at-me-text">column</span> (block) axis.</p>
+              <p>The values are the same as those available for <span class="code-word">justify-self</span>:</p>
+              <ul class="property-value-list">
+                <li>start</li>
+                <li>end</li>
+                <li>center</li>
+                <li>stretch</li>
+              </ul>
+              <code class="code-box">.item { <br>
+                justify-self: center;<br>
+                align-self: center;<br>
+                }</code>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">start</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">end</span> on grid.</figcaption>
+                <div class="gitem-container-box grid-justify-end">
+                  <div class="grid-figure-child grid-justify-self-row1">I</div>
+                  <div class="grid-figure-child grid-justify-self-row1">II</div>
+                  <div class="grid-figure-child grid-justify-self-row1">III</div>
+                  <div class="grid-figure-child grid-justify-self-row2">IV</div>
+                  <div class="grid-figure-child grid-justify-self-row2">V</div>
+                  <div class="grid-figure-child grid-justify-self-row2">VI</div>
+                </div>
+              </figure>
             </div>
             <!--Grid Item - grid-place-self property-->
             <div id="gitem-grid-place-self" class="section-subsection-content-info">
