@@ -1,17 +1,20 @@
-/*===========
-Import fonts
-=============*/
-
 /*========================
 Declare variables for page
 =========================*/
 :root {
   /*color scheme*/
+  --background-main-dark-colour: #264653; /*Navy*/
+  --background-main-light-colour: #2a9d8f; /*Green*/
+  --light-highlight-colour: #e9c46a; /*Yellow*/
+  --background-section-primary-colour: #f4a261; /*Orange*/
+  --background-section-secondary-colour: #e76f51; /*Orangey Red*/
+  --text-light-colour: #fff;
+  --text-dark-colour: #000;
 
   /*font and text*/
-  --header-text-font: "Trebuchet MS", cursive;
+  --header-text-font: "Ubuntu", "Trebuchet MS", cursive;
   --text-font: Verdana, sans-serif;
-  --code-font: monospace;
+  --code-font: "Goldman", monospace;
 }
 
 /*======================================
@@ -45,13 +48,17 @@ p,
 li,
 dt,
 dd {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: var(--text-font);
 }
 
+h1 {
+  font-family: var(--header-text-font);
+  font-size: 3rem;
+}
 /*code word or snippet in the middle of normal text*/
 .code-word {
-  color: red;
   padding: 0.4rem;
+  font-family: var(--code-font);
 }
 
 /*example code snippet to stand out */
@@ -81,7 +88,7 @@ dd {
 Layout
 =================*/
 body {
-  border: solid 3px red;
+  border: solid 3px var(--text-dark-colour, black);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -98,16 +105,15 @@ Header and Title
 
 #top-header {
   grid-area: header;
-  /* to test layout placement */
-  border: solid 3px green;
+  background-color: var(--background-main-light-colour);
 }
 
 #top-header h1 {
   text-align: center;
   margin: 0.5rem;
   padding: 0.5rem;
-  /* to test layout placement */
-  border: solid 3px blue;
+  color: var(--text-light-colour, white);
+  text-shadow: 2px 2px 5px black;
 }
 
 /*================
@@ -118,6 +124,11 @@ nav {
   grid-area: nav;
   /* to test layout placement */
   border: solid 3px orange;
+  background: linear-gradient(
+    120deg,
+    var(--background-main-light-colour),
+    var(--background-main-dark-colour)
+  );
 }
 
 #nav-bar {
@@ -550,8 +561,7 @@ Footer
 footer {
   grid-area: footer;
   position: relative;
-  /* to test layout placement */
-  border: solid 3px violet;
+  background-color: var(--background-main-dark-colour);
 }
 
 #all-about-me {
@@ -571,6 +581,12 @@ Link styles
 /*================
 The little touches
 =================*/
+
+/*nav stays on side view*/
+#nav-bar {
+  position: sticky;
+  top: 0;
+}
 
 /*Back to top - only for small mobile screen views*/
 .backtotop {
@@ -596,12 +612,6 @@ Responsiveness
       "nav content"
       "footer footer";
     font-size: 16px;
-  }
-
-  /*nav stays on side view*/
-  #nav-bar {
-    position: sticky;
-    top: 0;
   }
 
   /*not needed on this view as have side-menu always available*/
