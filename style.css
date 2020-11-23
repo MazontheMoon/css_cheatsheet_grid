@@ -511,7 +511,7 @@ Code example boxes - Grid Item properties
   grid-row-end: 4;
 }
 
-/*justify-self start*/
+/*justify-self codebox examples*/
 .grid-justify-self-start {
   justify-self: start;
 }
@@ -526,6 +526,23 @@ Code example boxes - Grid Item properties
 
 .grid-justify-self-stretch {
   justify-self: stretch;
+}
+
+/*align-self codebox examples*/
+.grid-align-self-start {
+  align-self: start;
+}
+
+.grid-align-self-end {
+  align-self: end;
+}
+
+.grid-align-self-center {
+  align-self: center;
+}
+
+.grid-align-self-stretch {
+  align-self: stretch;
 }
 /*=====
 Footer
