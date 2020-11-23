@@ -19,7 +19,7 @@ My CSS Cheat Sheet for learning CSS - Grid
 Finding your way around
 ================================================
 1. Header - Page Title
-2. Nav bar (4 main buttons and 2 sub buttons for button#3)
+2. Nav bar (3 main buttons and 2 sub buttons for button#3)
 3. Main - Intro & 3 sections
 4. Section - When to use Grid
 5. Section - What is Grid
@@ -52,8 +52,7 @@ Finding your way around
     6.2.h justify-self
     6.2.i align-self
     6.2.j place-self
-7. Section - Grids Grids Grids (different ways to create the same grid)
-8. Footer
+7. Footer
 --------------------------------------------------->
 
 <body>
@@ -69,7 +68,6 @@ Finding your way around
       <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#how-grid">How to use Grid?</a></li>
       <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-container">Grid Container</a></li>
       <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-item">Grid Items</a></li>
-      <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#grid-grid">Grids Grids Grids</a></li>
     </ul>
   </nav>
   <!--main content for page-->
@@ -79,7 +77,7 @@ Finding your way around
       <p>At this stage of the design process we have gathered all the content for the project and are ready to lay out the design of the page.</p>
       <p> We already have a cheatsheet for <a href="https://codepen.io/mazonthemoon/full/wvGzrOP" target="_blank"> Display and Positioning</a>, but just like <a href="https://codepen.io/mazonthemoon/full/JjXVMrb" target="_blank">Flexbox</a> was deserving of a page all to itself so too is Grid .</p>
     </div>
-    <!--section 1of4 - When to use Grid-->
+    <!--section 1 - When to use Grid-->
     <section id="when-grid" class="section-container">
       <header class="section-header">
         <h3>When to use Grid?</h3>
@@ -89,7 +87,7 @@ Finding your way around
         <p>As well as setting <span class="code-word">display: grid;</span> there is also <span class="code-word">display: inline-grid;</span> for the extra level of fun design.</p>
       </div>
     </section>
-    <!--section 2of4 - What is Grid-->
+    <!--section 2 - What is Grid-->
     <section id="what-grid" class="section-container">
       <header class="section-header">
         <h3>What is Grid?</h3>
@@ -105,7 +103,7 @@ Finding your way around
         <h3>How to use Grid?</h3>
       </header>
       <div class="section-content">
-        <!--section 3of4 How to use Grid subsection 1of2 Grid container-->
+        <!--section 3 How to use Grid subsection 1of2 Grid container-->
         <div class="section-subsection-container">
           <p>Using grid will involve setting the grid container and then the placement of the grid items in the container.</p>
           <p>Some terms we need to know before we dive into it...</p>
@@ -1174,24 +1172,22 @@ Finding your way around
             <!--Grid Item - grid-place-self property-->
             <div id="gitem-grid-place-self" class="section-subsection-content-info">
               <h5 class="sub-heading-text">Place Self</h5>
-              <p></p>
-              <code class="code-box"></code>
+              <p>You'll never have guessed this but <span class="code-word">place-self</span> is the shorthand for <span class="code-word">justify-self</span> and <span class="code-word">align-self</span>!</p>
+              <p>So we can write...</p>
+              <code class="code-box">.item { <br>
+                align-self: center;<br>
+                justify-self: start;<br>
+                }</code>
+              <p>You can use...</p>
+              <code class="code-box">.item { <br>
+                place-self: center start;<br>
+                }</code>
+              <p>The first value is for <span class="code-word">align-self</span> and the second for <span class="code-word">justify-self</span>...although if you set only one value both will use it <span class="code-word">place-self: center;</span></p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--section 4of4 - Grids Grids Grids-->
-    <section id="grid-grid" class="section-container">
-      <header class="section-header">
-        <h3>Grids Grids Grids!</h3>
-      </header>
-      <div class="section-content">
-        <p><span class="really-look-at-me-text">Now let's make some grids!</span></p>
-        <p>Time to put everything together and make some grids!!</p>
-      </div>
-    </section>
-
   </main>
   <!--footer-->
   <footer>
