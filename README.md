@@ -22,7 +22,15 @@
 Version 1.1 - Initial content
 
 ## Table of Contents
-
+1. Header - Page Title
+2. Nav bar (4 main buttons and 2 sub buttons for button#3)
+3. Main - Intro & 3 sections
+4. Section - When to use Grid
+5. Section - What is Grid
+6. Section - How to use Grid
+  6.1 Subsection - Grid Container
+  6.2 Subsection - Grid Items
+7. Footer
 
 
 ## Authors
