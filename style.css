@@ -54,7 +54,22 @@ dd {
 h1 {
   font-family: var(--header-text-font);
   font-size: 3rem;
+  line-height: 150%;
+  color: var(--background-main-light-colour, darkgrey);
 }
+
+h3 {
+  font-family: var(--header-text-font);
+  color: var(--background-main-dark-colour, darkgrey);
+  font-size: 2.25rem;
+}
+
+h5 {
+  font-family: var(--header-text-font);
+  color: var(--background-main-dark-colour, darkgrey);
+  font-size: 1.75rem;
+}
+
 /*code word or snippet in the middle of normal text*/
 .code-word {
   padding: 0.4rem;
@@ -88,7 +103,11 @@ h1 {
 Layout
 =================*/
 body {
-  border: solid 3px var(--text-dark-colour, black);
+  border: solid 2px var(--text-dark-colour, black);
+  background: linear-gradient(
+    var(--background-main-light-colour),
+    var(--background-main-dark-colour)
+  );
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -106,14 +125,18 @@ Header and Title
 #top-header {
   grid-area: header;
   background-color: var(--background-main-light-colour);
+  margin: 0 0.5rem;
+  border-top: solid 0.5rem var(--text-light-colour, white);
 }
 
 #top-header h1 {
   text-align: center;
-  margin: 0.5rem;
+  border-right: solid 0.5rem var(--text-light-colour, white);
+  border-left: solid 0.5rem var(--text-light-colour, white);
+  margin: 0.5rem 0;
   padding: 0.5rem;
-  color: var(--text-light-colour, white);
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 1px 1px 2px white, 2px 2px 3px white, -1px -1px 2px black,
+    -2px -2px 3px black;
 }
 
 /*================
@@ -122,28 +145,23 @@ Nav Menu Bar
 
 nav {
   grid-area: nav;
-  /* to test layout placement */
-  border: solid 3px orange;
-  background: linear-gradient(
-    120deg,
-    var(--background-main-light-colour),
-    var(--background-main-dark-colour)
-  );
+  margin: 0 0.5rem;
+  border-top: solid 0.5rem var(--text-light-colour, white);
 }
 
 #nav-bar {
   list-style: none;
-  padding: 0;
-  margin: 0.5rem;
-  /* to test layout placement
-  border: solid 3px cyan; */
+  border-left: solid 0.5rem var(--text-light-colour, white);
 }
 
 .nav-bar-button {
-  /* to test layout placement
-  border: solid 3px magenta; */
+  margin: 0.5rem 0;
 }
 
+.nav-bar-button-inner {
+  text-decoration: none;
+  color: var(--background-main-dark-colour, darkgrey);
+}
 .nav-bar-button-child {
   /* to test layout placement
   border: solid 3px yellow; */
@@ -156,13 +174,18 @@ Section Styling
 /*container boxes*/
 main {
   grid-area: content;
-  /* to test layout placement */
-  border: solid 3px black;
+  border-top: solid 0.5rem var(--text-light-colour, white);
+  margin-right: 0.5rem;
+  padding: 0.3rem;
+  position: relative;
+}
+
+section {
+  background-color: var(--text-light-colour);
+  margin: 0.5rem 0;
 }
 
 #intro-text {
-  /* to test layout placement */
-  border: solid 3px purple;
 }
 
 #intro-text p:first-of-type {
@@ -170,13 +193,9 @@ main {
 }
 
 .section-container {
-  /* to test layout placement */
-  border: solid 3px gray;
 }
 
 .section-header {
-  /* to test layout placement */
-  border: solid 3px pink;
 }
 
 .section-content {
