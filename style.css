@@ -48,28 +48,36 @@ p,
 li,
 dt,
 dd {
-  font-family: var(--text-font);
+  font-family: Verdana, sans-serif;
 }
 
 h1 {
   font-family: var(--header-text-font);
-  font-size: 3rem;
+  font-size: 3.5rem;
   line-height: 150%;
-  color: var(--background-main-light-colour, darkgrey);
+  color: var(--background-main-light-colour, lightseagreen);
 }
 
 h3 {
   font-family: var(--header-text-font);
   color: var(--background-main-dark-colour, darkgrey);
-  font-size: 2.25rem;
+  font-size: 2.5rem;
+  margin: 0;
 }
 
 h5 {
   font-family: var(--header-text-font);
   color: var(--background-main-dark-colour, darkgrey);
   font-size: 1.75rem;
+  margin: 0;
 }
 
+p {
+  font-family: var(--text-font);
+  font-size: 1.25rem;
+  line-height: 150%;
+  margin: 0.25rem 0;
+}
 /*code word or snippet in the middle of normal text*/
 .code-word {
   padding: 0.4rem;
@@ -79,7 +87,11 @@ h5 {
 /*example code snippet to stand out */
 .code-box {
   display: inline-block;
-  border: solid 3px red;
+  font-family: var(--code-font);
+  background-color: var(--light-highlight-colour, burlywood);
+  border: solid 0.3rem var(--text-dark-colour, black);
+  padding: 0.3rem;
+  margin-left: 0.3rem;
 }
 
 /*indentation in code box*/
@@ -105,8 +117,8 @@ Layout
 body {
   border: solid 2px var(--text-dark-colour, black);
   background: linear-gradient(
-    var(--background-main-light-colour),
-    var(--background-main-dark-colour)
+    var(--background-main-light-colour, lightseagreen),
+    var(--background-main-dark-colour, darkgrey)
   );
   display: grid;
   grid-template-columns: 1fr;
@@ -124,7 +136,7 @@ Header and Title
 
 #top-header {
   grid-area: header;
-  background-color: var(--background-main-light-colour);
+  background-color: var(--background-main-light-colour, lightseagreen);
   margin: 0 0.5rem;
   border-top: solid 0.5rem var(--text-light-colour, white);
 }
@@ -151,6 +163,8 @@ nav {
 
 #nav-bar {
   list-style: none;
+  margin: 0.5rem;
+  padding: 0 0.5rem;
   color: var(--text-light-colour, white);
   font-size: 2rem;
 }
@@ -185,32 +199,45 @@ main {
 }
 
 section {
-  background-color: white;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   padding: 0.5rem 1rem;
   border: solid 0.1rem black;
   box-shadow: 0.3rem 0.3rem 0.3rem black;
 }
 
+#intro-text {
+  background-color: white;
+}
+
 #intro-text p:first-of-type {
   text-align: center;
   font-weight: 600;
+  color: var(--background-main-dark-colour, darkgrey);
+  margin: 0.5rem 0;
 }
 
 .section-container {
+  padding: 0.5rem;
+  background-clip: content-box;
 }
 
 .section-header {
+  border: solid 0.1rem black;
+  background-color: white;
+  margin: 0;
+  padding: 1rem;
 }
 
 .section-content {
-  /* to test layout placement */
-  border: solid 3px orange;
+  margin: 0.2rem 0 0;
+  padding: 0.5rem 1rem;
+  border: solid 0.1rem black;
+  background-color: white;
 }
 
 .section-subsection-container {
-  /* to test layout placement*/
-  border: solid 3px green;
+  margin: 0;
+  padding: 0;
 }
 
 .section-subsection-header {
@@ -219,8 +246,8 @@ section {
 }
 
 .section-subsection-content {
-  /* to test layout placement */
-  border: solid 3px blue;
+  margin: 0;
+  padding: 1rem;
 }
 
 .section-subsection-content-list {
