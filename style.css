@@ -243,7 +243,7 @@ section {
 }
 
 .section-header {
-  border-left: solid 4.5rem black;
+  border-left: solid 1rem black;
   background-color: var(--background-main-dark-colour, darkgrey);
   background: linear-gradient(
     90deg,
@@ -251,7 +251,7 @@ section {
     var(--background-main-light-colour, lightseagreen)
   );
   margin: 0;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .section-content {
@@ -274,18 +274,37 @@ section {
     var(--background-main-light-colour, lightseagreen),
     var(--text-light-colour, white)
   );
-  border-left: solid 2.25rem;
+  border-left: solid 1rem var(--text-dark-colour, black);
 }
 
 .section-subsection-content {
   margin: 0.5rem 0;
   padding: 1rem;
-  border-left: 0.3rem solid;
+  border-left: 0.3rem solid var(--text-dark-colour, black);
 }
 
 .section-subsection-content-list {
-  /* to test layout placement */
-  border: solid 3px pink;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section-subsection-content-list li {
+  margin: 0.3rem;
+  padding: 0.5rem;
+  border-left: 0.3rem solid var(--background-section-primary-colour);
+}
+
+.section-subsection-content-list li:hover {
+  background: linear-gradient(
+    90deg,
+    var(--background-section-primary-colour),
+    var(--text-light-colour, white)
+  );
+}
+.section-subsection-content-list li a {
+  text-decoration: none;
+  color: var(--text-dark-colour);
 }
 
 .section-subsection-content-info {
