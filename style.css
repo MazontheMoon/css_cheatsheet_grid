@@ -179,6 +179,13 @@ nav {
 
 .nav-bar-button {
   margin: 0.5rem 0;
+  padding-left: 0.3rem;
+  border-left: 0.3rem solid;
+  display: flex;
+}
+
+.nav-bar-button-child {
+  margin-left: 1.5rem;
 }
 
 .nav-bar-button-inner {
@@ -186,6 +193,7 @@ nav {
   color: var(--text-light-colour, white);
   font-size: 1.5rem;
   border-bottom: 3px solid var(--background-main-light-colour, lightseagreen);
+  padding: 0.3rem;
 }
 
 .nav-bar-button-inner:hover {
@@ -194,7 +202,7 @@ nav {
 }
 
 .nav-bar-button-child {
-  padding-left: 2rem;
+  padding-left: 0.3rem;
 }
 
 .nav-bar-button-inner-child {
