@@ -119,12 +119,6 @@ dd {
   font-weight: bold;
   border-bottom: solid 1px;
 }
-
-.sub-heading-text {
-  /* to test layout placement */
-  border: solid 3px seagreen;
-}
-
 /*================
 Layout
 =================*/
@@ -238,7 +232,7 @@ section {
 }
 
 .section-container {
-  padding: 0.5rem;
+  padding: 0.3rem;
   background-clip: content-box;
 }
 
@@ -256,7 +250,7 @@ section {
 
 .section-content {
   margin: 0.2rem 0 0;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.5rem;
   border: solid 0.1rem black;
   background-color: white;
 }
@@ -278,9 +272,8 @@ section {
 }
 
 .section-subsection-content {
-  margin: 0.5rem 0;
-  padding: 1rem;
-  border-left: 0.3rem solid var(--text-dark-colour, black);
+  margin: 0.3rem 0;
+  padding: 0.3rem;
 }
 
 .section-subsection-content-list {
@@ -291,8 +284,9 @@ section {
 
 .section-subsection-content-list li {
   margin: 0.3rem;
-  padding: 0.5rem;
+  padding: 0.3rem;
   border-left: 0.3rem solid var(--background-section-primary-colour);
+  font-size: 1.25rem;
 }
 
 .section-subsection-content-list li:hover {
@@ -308,10 +302,22 @@ section {
 }
 
 .section-subsection-content-info {
-  /* to test layout placement */
-  border: solid 3px grey;
+  margin: 1rem 0;
+  border-left: 0.3rem solid var(--background-section-primary-colour, orange);
 }
 
+.sub-heading-text {
+  font-family: var(--header-text-font);
+  color: var(--text-dark-colour, black);
+  text-shadow: 1px 1px 2px var(--background-section-primary-colour, orange);
+  border-top: 0.3rem solid var(--background-section-primary-colour, orange);
+  border-bottom: 0.3rem solid var(--background-section-primary-colour, orange);
+  margin-left: 0.3rem;
+}
+
+.section-subsection-content-info p {
+  padding: 0 0.5rem;
+}
 .property-value-list {
   /* to test layout placement */
   border: solid 3px purple;
