@@ -106,9 +106,8 @@ dd {
   border: solid 0.3rem var(--text-dark-colour, black);
   padding: 0.3rem;
   margin-left: 0.3rem;
+  margin-bottom: 1rem;
 }
-
-/*indentation in code box*/
 
 /*highlight text visually but not affecting screenreaders*/
 .look-at-me-text {
@@ -326,9 +325,9 @@ section {
 .section-subsection-content-info p {
   padding: 0 0.5rem;
 }
+
 .property-value-list {
-  /* to test layout placement */
-  border: solid 3px purple;
+  list-style-type: square;
 }
 
 /*============================================
