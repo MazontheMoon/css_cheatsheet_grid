@@ -47,7 +47,8 @@ h5,
 p,
 li,
 dt,
-dd {
+dd,
+figcaption {
   font-family: Verdana, sans-serif;
 }
 
@@ -107,6 +108,7 @@ li {
   border: solid 0.3rem var(--text-dark-colour, black);
   padding: 0.3rem;
   margin: 0.75rem 0 0.75rem 0.5rem;
+  font-size: 1.3rem;
 }
 
 /*highlight text visually but not affecting screenreaders*/
@@ -334,16 +336,23 @@ Code example boxes - Grid Container properties
 =============================================*/
 /*code example - figure container box*/
 .grid-figure {
-  margin: 0;
+  margin: 0.3rem 0;
   padding: 0;
+}
+
+.grid-figure figcaption {
+  font-size: 1.25rem;
+  margin: 0.5rem 1rem;
 }
 
 /*grid container*/
 .grid-figure-box {
   width: 200px;
   height: 200px;
-  border: solid black 3px;
-  background-color: grey;
+  margin: 1rem;
+  padding: 0;
+  border: solid var(--background-section-secondary-colour, tomato) 3px;
+  background-color: black;
   display: grid;
   grid-template-areas:
     "top-left top-center top-right"
@@ -362,7 +371,7 @@ Code example boxes - Grid Container properties
   margin: 0;
   padding: 0.2rem;
   border: solid 1px white;
-  background-color: black;
+  background-color: var(--background-section-secondary-colour, tomato);
   color: white;
   font-family: var(--code-font);
 }
@@ -406,28 +415,32 @@ Code example boxes - Grid Container properties
 
 /*change backgorund colour by row to easier see the alignment*/
 .grid-justify-row1 {
-  background-color: red;
+  background-color: var(--background-section-secondary-colour, tomato);
 }
 
 .grid-justify-row2 {
-  background-color: green;
+  background-color: var(--background-section-secondary-colour, tomato);
+  opacity: 0.6;
 }
 
 .grid-justify-row3 {
-  background-color: blue;
+  background-color: var(--background-section-secondary-colour, tomato);
+  opacity: 0.4;
 }
 
 /*change backgorund colour by column to easier see the alignment*/
 .grid-align-col1 {
-  background-color: red;
+  background-color: var(--background-section-secondary-colour, tomato);
 }
 
 .grid-align-col2 {
-  background-color: green;
+  background-color: var(--background-section-secondary-colour, tomato);
+  opacity: 0.6;
 }
 
 .grid-align-col3 {
-  background-color: blue;
+  background-color: var(--background-section-secondary-colour, tomato);
+  opacity: 0.4;
 }
 
 /*grid justify-items example boxes*/
@@ -471,8 +484,9 @@ Code example boxes - Grid Container properties
 .grid-figure-box-row {
   width: 150px;
   height: 150px;
-  border: solid black 3px;
-  background-color: grey;
+  margin: 1rem;
+  border: solid var(--background-section-secondary-colour, tomato) 3px;
+  background-color: black;
   display: grid;
   grid-template-columns: 50px 50px;
   grid-template-rows: 50px 50px;
@@ -541,8 +555,9 @@ Code example boxes - Grid Container properties
 .grid-figure-implicit {
   width: 150px;
   height: 150px;
-  border: solid black 3px;
-  background-color: grey;
+  margin: 1rem;
+  border: solid var(--background-section-secondary-colour, tomato) 3px;
+  background-color: black;
   display: grid;
 }
 
@@ -608,8 +623,9 @@ Code example boxes - Grid Item properties
 .gitem-container-box {
   width: 200px;
   height: 200px;
-  border: solid black 3px;
-  background-color: grey;
+  margin: 1rem;
+  border: solid var(--background-section-secondary-colour, tomato) 3px;
+  background-color: black;
   display: grid;
   grid-template-areas:
     "top-left top-center top-right"
