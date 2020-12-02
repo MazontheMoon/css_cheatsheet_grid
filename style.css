@@ -348,6 +348,7 @@ Code example boxes - Grid Container properties
 .grid-figure figcaption {
   font-size: 1.25rem;
   margin: 0.5rem 1rem;
+  font-weight: bold;
 }
 
 /*grid container*/
@@ -753,6 +754,20 @@ Responsiveness
   /*not needed on this view as have side-menu always available*/
   .backtotop {
     display: none;
+  }
+
+  /*figcaption and code example box change to side by side view*/
+  .grid-figure {
+    display: flex;
+  }
+
+  .grid-figure figcaption {
+    background-color: var(--background-section-secondary-colour, tomato);
+    color: var(--text-light-colour, white);
+    border: solid var(--text-dark-colour, black) 3px;
+    width: 200px;
+    margin: 1rem;
+    padding: 1rem;
   }
 }
 /*Media queries for print view*/
