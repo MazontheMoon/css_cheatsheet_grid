@@ -123,12 +123,17 @@ li {
 /*================
 Layout
 =================*/
-body {
-  border: solid 2px var(--text-dark-colour, black);
+html {
   background: linear-gradient(
     var(--background-main-light-colour, lightseagreen),
     var(--background-main-dark-colour, darkgrey)
   );
+  width: 100vw;
+}
+
+body {
+  max-width: 1800px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -761,4 +766,8 @@ Accessibility
 /*Remove animations or visual affects based on userbrowser perference*/
 
 @media (prefers-reduced-motion) {
+}
+
+@media (prefers-reduced-motion: reduce) {
+  scroll-behavior: auto;
 }
