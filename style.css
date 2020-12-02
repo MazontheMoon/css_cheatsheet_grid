@@ -123,12 +123,17 @@ li {
 /*================
 Layout
 =================*/
-body {
-  border: solid 2px var(--text-dark-colour, black);
+html {
   background: linear-gradient(
     var(--background-main-light-colour, lightseagreen),
     var(--background-main-dark-colour, darkgrey)
   );
+  width: 100vw;
+}
+
+body {
+  max-width: 1800px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -343,6 +348,7 @@ Code example boxes - Grid Container properties
 .grid-figure figcaption {
   font-size: 1.25rem;
   margin: 0.5rem 1rem;
+  font-weight: bold;
 }
 
 /*grid container*/
@@ -749,6 +755,20 @@ Responsiveness
   .backtotop {
     display: none;
   }
+
+  /*figcaption and code example box change to side by side view*/
+  .grid-figure {
+    display: flex;
+  }
+
+  .grid-figure figcaption {
+    background-color: var(--background-section-secondary-colour, tomato);
+    color: var(--text-light-colour, white);
+    border: solid var(--text-dark-colour, black) 3px;
+    width: 200px;
+    margin: 1rem;
+    padding: 1rem;
+  }
 }
 /*Media queries for print view*/
 
@@ -761,4 +781,8 @@ Accessibility
 /*Remove animations or visual affects based on userbrowser perference*/
 
 @media (prefers-reduced-motion) {
+}
+
+@media (prefers-reduced-motion: reduce) {
+  scroll-behavior: auto;
 }
