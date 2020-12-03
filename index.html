@@ -52,13 +52,13 @@ Finding your way around
     6.2.h justify-self
     6.2.i align-self
     6.2.j place-self
-7. Footer
+8. Footer
 --------------------------------------------------->
 
 <body>
   <!--Header-->
   <header id="top-header">
-    <h1>The CSS Grid</h1>
+    <h1>CSS Grid</h1>
   </header>
   <!--nav menu-->
   <nav>
@@ -66,8 +66,8 @@ Finding your way around
       <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#when-grid">When to use Grid?</a></li>
       <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#what-grid">What is Grid?</a></li>
       <li class="nav-bar-button"><a class="nav-bar-button-inner" href="#how-grid">How to use Grid?</a></li>
-      <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-container">Grid Container</a></li>
-      <li class="nav-bar-button-child"><a class="nav-bar-button-inner-child" href="#how-grid-item">Grid Items</a></li>
+      <li class="nav-bar-button nav-bar-button-child"><a class="nav-bar-button-inner nav-bar-button-inner-child" href="#how-grid-container">Grid Container</a></li>
+      <li class="nav-bar-button nav-bar-button-child"><a class="nav-bar-button-inner nav-bar-button-inner-child" href="#how-grid-item">Grid Items</a></li>
     </ul>
   </nav>
   <!--main content for page-->
@@ -199,7 +199,7 @@ Finding your way around
                 grid-template-columns: 2fr minmax(100px, 500px) 1fr; <br>
                 grid-template-rows: minmax(50px, 100px) auto minmax(50px, 100px);<br>
                 }</code>
-              <p>If the column or row is defined with only <span class="look-at-me-text">track-size</span> then the grid lnes are automatically numbered with positive and negative numbers (postive numbers for the grid lines going from <span class="look-at-me-text">first</span> line to the <span class="look-at-me-text">last</span> line or negative numbers when going from the <span class="look-at-me-text">last</span> grid line to the <span class="look-at-me-text">first</span> grid line) - 3 columns will have 4 lines.</p>
+              <p>If the column or row is defined with only <span class="look-at-me-text">track-size</span> then the grid lines are automatically numbered with positive and negative numbers (postive numbers for the grid lines going from <span class="look-at-me-text">first</span> line to the <span class="look-at-me-text">last</span> line or negative numbers when going from the <span class="look-at-me-text">last</span> grid line to the <span class="look-at-me-text">first</span> grid line) - 3 columns will have 4 lines.</p>
               <p>This allows you to target the <span class="look-at-me-text">first </span> cell using the gridline 1 or the <span class="look-at-me-text">last</span> cell using the gridline -1 without knowing the actual size of the grid.</p>
               <p>Otherwise you can specifically set names (in []) for the <span class="look-at-me-text">line-name</span> that you create yourself such as <span class="look-at-me-text">[first-line]</span>, <span class="look-at-me-text">[row1-start]</span>, <span class="look-at-me-text">[col2-end]</span>, etc., <span class="really-look-at-me-text">and</span> the same line can have more than one name [row-1-end row-2-start]</p>
               <code class="code-box">container {<br>
@@ -213,823 +213,43 @@ Finding your way around
                 grid-template-columns: [col1] 20% [col1] 65% [col1] 15% [col1];<br>
                 }</code>
               <p>and can be referenced by their count...</p>
-            </div>
-            <code class="code-box"> .item {<br>
-              grid-column-start: col1 2; <span class="look-at-me-text">/*starts from the second col1 line*/</span><br>
-              }</code>
-            <p>and last of all...we have <span class="look-at-me-text">repeat()</span>!</p>
-            <code class="code-box">.container {<br>
-              display: grid;<br>
-              grid-template-columns: [col1] 1fr [col1] 1fr [col1] 1fr [col1];<br>
-              grid-template-rows: 1fr 1fr 1fr;<br>
-              }</code>
-            <p>can be written as...</p>
-            <code class="code-box">.container {<br>
-              display: grid;<br>
-              grid-template-columns: repeat(3, 1fr [col1]);<br>
-              grid-template-rows: repeat (3 1fr);<br>
-              }</code>
-            <p>There is some extra magic we can use with <span class="look-at-me-text">repeat()</span>...<span class="look-at-me-text">auto-fit</span> and <span class="look-at-me-text">auto-fill</span>.</p>
-            <code class="code-box">.container {<br>
-              display: grid;<br>
-              grid-template-columns: repeat(auto-fit, 200px);<br>
-              }</code>
-            <p>Using <span class="look-at-me-text">auto-fit</span> will add extra columns but if no content will size as 0 so no extra blank space shows.</p>
-            <code class="code-box">.container {<br>
-              display: grid;<br>
-              grid-template-columns: repeat(auto-fill, 200px);<br>
-              }</code>
-            <p>Using <span class="look-at-me-text">auto-fill</span> will add extra columns with no content, but shows as blank space.</p>
-          </div>
-          <!--Grid Container - grid-template-area property-->
-          <div id="container-grid-temp-area" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Grid Template Areas</h5>
-            <p>Using <span class="code-word">grid-template-areas</span> gives a visual representation of the grid and content. The grid is defined by referencing the <span class="code-word">grid-area</span> for each cell.</p>
-            <code class="code-box">.container {<br>
-              display: grid;<br>
-              grid-template-areas:<br>
-              "header header header"<br>
-              "nav main none" <span class="look-at-me-text">/*using none means no grid area defined*/</span><br>
-              ". footer footer"; <span class="look-at-me-text">/*using . means an empty grid cell*/</span><br>
-              grid-template-columns: repeat(3 1fr);<br>
-              grid-template-rows: auto;<br>
-              }<br>
-              <br>
-              header {<br>
-              grid-area: header;<br>
-              }<br>
-              <br>
-              nav {<br>
-              grid-area: nav;<br>
-              }<br>
-              <br>
-              main {<br>
-              grid-area: main;<br>
-              }<br>
-              <br>
-              footer {<br>
-              grid-area: footer;<br>
-              }</code>
-            <p>Each row needs to have the same number of cells!!!</p>
-            <p>When using <span class="code-word">grid-template-areas</span> the <span class="look-at-me-text">grid-lines</span> are automatically named, for example for the grid area named <span class="look-at-me-text">header</span> the name of the area’s starting row line and starting column line will be <span class="look-at-me-text">header-start</span> and the name of its last row line and last column line will be <span class="look-at-me-text">header-end</span> (some lines might have multiple names).</p>
-          </div>
-          <!--Grid Container - grid-template property-->
-          <div id="container-grid-temp" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Grid Template</h5>
-            <p>The shorthand for for setting <span class="code-word">grid-template-rows</span>, <span class="code-word">grid-template-columns</span>, and <span class="code-word">grid-template-areas</span> is <span class="code-word">grid-template</span>.</p>
-            <p>So this...</p>
-            <code class="code-box">.container {<br>
-              display: grid;<br>
-              grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];<br>
-              grid-template-columns: auto 50px auto;<br>
-              grid-template-areas:<br>
-              "header header header"<br>
-              "footer footer footer";<br>
-              }</code>
-            <p>can instead be written as...</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template:<br>
-              [row1-start] "header header header" 25px [row1-end]<br>
-              [row2-start] "footer footer footer" 25px [row2-end]<br>
-              / auto 50px auto;<br>
-              }</code>
-            <p>The order is <span class="code-word">grid-template: rows / columns;</span></p>
-            <p>However, <span class="code-word">grid</span> (coming up soon) is used more often than <span class="code-word">grid-template</span>.</p>
-          </div>
-          <!--Grid Container - grid-column-gap & grid-row-gap properties-->
-          <div id="container-grid-col-row-gap" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Column Gap &amp; Row Gap</h5>
-            <p>This specifies the size of the grid lines... the space between the grid cells. It is only applied between cells (not the outside edges)</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              column-gap: 10px;<br>
-              row-gap: 15px;<br>
-              }</code>
-          </div>
-          <!--Grid Container - grid-gap property-->
-          <div id="container-grid-gap" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Grid Gap</h5>
-            <p>You would be correct if you guessed that <span class="code-word">grid-gap</span> was the shorthand for <span class="code-word">column-gap</span> and <span class="code-word">row-gap</span>.</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px 10px;<br>
-              }</code>
-            <p>or...</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              }</code>
-            <p>If <span class="code-word">row-gap</span> is not specified it will take the same value as <span class="code-word">column-gap</span></p>
-          </div>
-          <!--Grid Container - grid-justify-items property-->
-          <div id="container-grid-justify-items" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Justify Items</h5>
-            <p>To align <span class="look-at-me-text">grid-items</span> along the <span class="look-at-me-text">row</span> axis we use <span class="code-word">justify-items </span>.</p>
-            <p>The values that can be set are:</p>
-            <ul class="property-value-list">
-              <li>start</li>
-              <li>end</li>
-              <li>center</li>
-              <li>stretch</li>
-            </ul>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              justify-items: center;<br>
-              }</code>
-          </div>
-          <!--Grid Container - align-item property-->
-          <div id="container-grid-align-items" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Align Items</h5>
-            <p>To align <span class="look-at-me-text">grid-items</span> along the <span class="look-at-me-text">column</span> axis we use <span class="code-word">align-items </span> (where <span class="code-word">justify-items</span> was aligning to the row axis).</p>
-            <p>The values that can be set are the same as those used with <span class="code-word">justify-items</span>:</p>
-            <ul class="property-value-list">
-              <li>start</li>
-              <li>end</li>
-              <li>center</li>
-              <li>stretch</li>
-            </ul>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              justify-items: center;<br>
-              align-items: center;
-              }</code>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">start</span> </figcaption>
-              <div class="grid-figure-box grid-justify-start">
-                <div class="grid-figure-child grid-justify-row1 child-a">I</div>
-                <div class="grid-figure-child grid-justify-row1 child-b">II</div>
-                <div class="grid-figure-child grid-justify-row1 child-c">III</div>
-                <div class="grid-figure-child grid-justify-row2 child-d">IV</div>
-                <div class="grid-figure-child grid-justify-row2 child-e">V</div>
-                <div class="grid-figure-child grid-justify-row2 child-f">VI</div>
-                <div class="grid-figure-child grid-justify-row3 child-g">VII</div>
-                <div class="grid-figure-child grid-justify-row3 child-h">VIII</div>
-                <div class="grid-figure-child grid-justify-row3 child-i">VIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">start</span> </figcaption>
-              <div class="grid-figure-box grid-align-start">
-                <div class="grid-figure-child grid-align-col1 child-a">I</div>
-                <div class="grid-figure-child grid-align-col2 child-b">II</div>
-                <div class="grid-figure-child grid-align-col3 child-c">III</div>
-                <div class="grid-figure-child grid-align-col1 child-d">IV</div>
-                <div class="grid-figure-child grid-align-col2 child-e">V</div>
-                <div class="grid-figure-child grid-align-col3 child-f">VI</div>
-                <div class="grid-figure-child grid-align-col1 child-g">VII</div>
-                <div class="grid-figure-child grid-align-col2 child-h">VIII</div>
-                <div class="grid-figure-child grid-align-col3 child-i">VIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">end</span> </figcaption>
-              <div class="grid-figure-box grid-justify-end">
-                <div class="grid-figure-child grid-justify-row1 child-a">I</div>
-                <div class="grid-figure-child grid-justify-row1 child-b">II</div>
-                <div class="grid-figure-child grid-justify-row1 child-c">III</div>
-                <div class="grid-figure-child grid-justify-row2 child-d">IV</div>
-                <div class="grid-figure-child grid-justify-row2 child-e">V</div>
-                <div class="grid-figure-child grid-justify-row2 child-f">VI</div>
-                <div class="grid-figure-child grid-justify-row3 child-g">VII</div>
-                <div class="grid-figure-child grid-justify-row3 child-h">VIII</div>
-                <div class="grid-figure-child grid-justify-row3 child-i">VIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">end</span> </figcaption>
-              <div class="grid-figure-box grid-align-end">
-                <div class="grid-figure-child grid-align-col1 child-a">I</div>
-                <div class="grid-figure-child grid-align-col2 child-b">II</div>
-                <div class="grid-figure-child grid-align-col3 child-c">III</div>
-                <div class="grid-figure-child grid-align-col1 child-d">IV</div>
-                <div class="grid-figure-child grid-align-col2 child-e">V</div>
-                <div class="grid-figure-child grid-align-col3 child-f">VI</div>
-                <div class="grid-figure-child grid-align-col1 child-g">VII</div>
-                <div class="grid-figure-child grid-align-col2 child-h">VIII</div>
-                <div class="grid-figure-child grid-align-col3 child-i">VIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">center</span> </figcaption>
-              <div class="grid-figure-box grid-justify-center">
-                <div class="grid-figure-child grid-justify-row1 child-a">I</div>
-                <div class="grid-figure-child grid-justify-row1 child-b">II</div>
-                <div class="grid-figure-child grid-justify-row1 child-c">III</div>
-                <div class="grid-figure-child grid-justify-row2 child-d">IV</div>
-                <div class="grid-figure-child grid-justify-row2 child-e">V</div>
-                <div class="grid-figure-child grid-justify-row2 child-f">VI</div>
-                <div class="grid-figure-child grid-justify-row3 child-g">VII</div>
-                <div class="grid-figure-child grid-justify-row3 child-h">VIII</div>
-                <div class="grid-figure-child grid-justify-row3 child-i">VIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">center</span> </figcaption>
-              <div class="grid-figure-box grid-align-center">
-                <div class="grid-figure-child grid-align-col1 child-a">I</div>
-                <div class="grid-figure-child grid-align-col2 child-b">II</div>
-                <div class="grid-figure-child grid-align-col3 child-c">III</div>
-                <div class="grid-figure-child grid-align-col1 child-d">IV</div>
-                <div class="grid-figure-child grid-align-col2 child-e">V</div>
-                <div class="grid-figure-child grid-align-col3 child-f">VI</div>
-                <div class="grid-figure-child grid-align-col1 child-g">VII</div>
-                <div class="grid-figure-child grid-align-col2 child-h">VIII</div>
-                <div class="grid-figure-child grid-align-col3 child-i">VIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">stretch</span> </figcaption>
-              <div class="grid-figure-box grid-justify-stretch">
-                <div class="grid-figure-child grid-justify-row1 child-a">I</div>
-                <div class="grid-figure-child grid-justify-row1 child-b">II</div>
-                <div class="grid-figure-child grid-justify-row1 child-c">III</div>
-                <div class="grid-figure-child grid-justify-row2 child-d">IV</div>
-                <div class="grid-figure-child grid-justify-row2 child-e">V</div>
-                <div class="grid-figure-child grid-justify-row2 child-f">VI</div>
-                <div class="grid-figure-child grid-justify-row3 child-g">VII</div>
-                <div class="grid-figure-child grid-justify-row3 child-h">VIII</div>
-                <div class="grid-figure-child grid-justify-row3 child-i">VIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">stretch</span> </figcaption>
-              <div class="grid-figure-box grid-align-stretch">
-                <div class="grid-figure-child grid-align-col1 child-a">I</div>
-                <div class="grid-figure-child grid-align-col2 child-b">II</div>
-                <div class="grid-figure-child grid-align-col3 child-c">III</div>
-                <div class="grid-figure-child grid-align-col1 child-d">IV</div>
-                <div class="grid-figure-child grid-align-col2 child-e">V</div>
-                <div class="grid-figure-child grid-align-col3 child-f">VI</div>
-                <div class="grid-figure-child grid-align-col1 child-g">VII</div>
-                <div class="grid-figure-child grid-align-col2 child-h">VIII</div>
-                <div class="grid-figure-child grid-align-col3 child-i">VIIII</div>
-              </div>
-            </figure>
-          </div>
-          <!--Grid Container - place-items property-->
-          <div id="container-grid-place-items" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Place Items</h5>
-            <p>The shorthand for <span class="code-word">justify-items</span> and <span class="code-word">align-items</span> is...you've guessed it...<span class="code-word">place-items</span>!</p>
-            <p>Instead of...</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              justify-items: center;<br>
-              align-items: center;<br>
-              }</code>
-            <p>You can use...</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              place-items: center stretch;<br>
-              }</code>
-            <p>The first value is for <span class="code-word">align-items</span> and the second for <span class="code-word">justify-items</span>...although if you set only one value both will use it <span class="code-word">place-items: center;</span></p>
-          </div>
-          <!--Grid Container - grid-justify-content property-->
-          <div id="container-grid-justify-content" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Justify Content</h5>
-            <p>We use <span class="code-word">justify-content</span> (and the upcoming <span class="code-word">align-content</span>) to align the grid along the <span class="look-at-me-text">row</span> (inline) axis when the total size of the grid is smaller than the grid container itself...such as can happen if the <span class="look-at-me-text">grid-items</span> are a fixed size.</p>
-            <p>The values that can be set are:</p>
-            <ul class="property-value-list">
-              <li>start</li>
-              <li>end</li>
-              <li>center</li>
-              <li>stretch</li>
-              <li>space-around</li>
-              <li>space-between</li>
-              <li>space-evenly</li>
-            </ul>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              justify-content: center;<br>
-              }</code>
-
-          </div>
-          <!--Grid Container - align-content property-->
-          <div id="container-grid-align-content" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Align Content</h5>
-            <p>Similar to <span class="code-word">justify-content</span> we use <span class="code-word">align-content</span>) to align the grid along the <span class="look-at-me-text">column</span> (block) axis.</p>
-            <p>The values that can be set are the same as used with <span class="code-word">justify-content</span>:</p>
-            <ul class="property-value-list">
-              <li>start</li>
-              <li>end</li>
-              <li>center</li>
-              <li>stretch</li>
-              <li>space-around</li>
-              <li>space-between</li>
-              <li>space-evenly</li>
-            </ul>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              align-content: center;<br>
-              }</code>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">start</span> </figcaption>
-              <div class="grid-figure-box-row grid-justify-content-start">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">start</span> </figcaption>
-              <div class="grid-figure-box-row grid-align-content-start">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">end</span> </figcaption>
-              <div class="grid-figure-box-row grid-justify-content-end">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">end</span> </figcaption>
-              <div class="grid-figure-box-row grid-align-content-end">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">center</span> </figcaption>
-              <div class="grid-figure-box-row grid-justify-content-center">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">center</span> </figcaption>
-              <div class="grid-figure-box-row grid-align-content-center">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figure class="grid-figure">
-                <figcaption>Seeing is believing...justify <span class="look-at-me-text">stretch</span> </figcaption>
-                <div class="grid-figure-box-row grid-justify-content-stretch">
-                  <div class="grid-figure-child">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child">III</div>
-                  <div class="grid-figure-child">IV</div>
-                </div>
-              </figure>
-
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">stretch</span> </figcaption>
-              <div class="grid-figure-box-row grid-align-content-stretch">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-around</span> </figcaption>
-              <div class="grid-figure-box-row grid-justify-content-space-around">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">space-around</span> </figcaption>
-              <div class="grid-figure-box-row grid-align-content-space-around">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-between</span> </figcaption>
-              <div class="grid-figure-box-row grid-justify-content-space-between">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">space-between</span> </figcaption>
-              <div class="grid-figure-box-row grid-align-content-space-between">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-evenly</span> </figcaption>
-              <div class="grid-figure-box-row grid-justify-content-space-evenly">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...align <span class="look-at-me-text">space-evenly</span> </figcaption>
-              <div class="grid-figure-box-row grid-align-content-space-evenly">
-                <div class="grid-figure-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-                <div class="grid-figure-child">IV</div>
-              </div>
-            </figure>
-          </div>
-          <!--Grid Container - place-content property-->
-          <div id="container-grid-place-content" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Place Content</h5>
-            <p>The shorthand for <span class="code-word">justify-content</span> and <span class="code-word">align-content</span> is...you've guessed coorectly yet again...it is...<span class="code-word">place-content</span>!</p>
-            <p>Instead of...</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              justify-content: center;<br>
-              align-content: center;<br>
-              }</code>
-            <p>You can use...</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-gap: 10px;<br>
-              place-content: center stretch;<br>
-              }</code>
-            <p>The first value is for <span class="code-word">align-content</span> and the second for <span class="code-word">justify-content</span>...although if you set only one value both will use it <span class="code-word">place-content: center;</span></p>
-          </div>
-          <!--Grid Container - grid-auto-columns property-->
-          <div id="container-grid-auto-col" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Grid Auto Columns and Auto Rows</h5>
-            <p>All of the grids so far have been <span class="look-at-me-text">explicit grids</span> in that they are manually defined with set rowns or columns.</p>
-            <p>We are now going to look at <span class="look-at-me-text">implicit grids</span>. If a grid item is positioned into a column that is not explicitly sized by <span class="code-word"> grid-template-columns </span>, or <span class="code-word"> grid-template-rows </span>implicit grid tracks are created to hold it.</p>
-            <p>The values we can set for <span class="code-word">grid-auto-columns</span> or <span class="code-word"> grid-template-rows</span> are the same as used for and <span class="code-word">grid-template-rows</span>... length (px or rem , etc.), fraction (fr), percentage (%), minmax(), auto...and ones I have mentioned yet...min-content and fit-content!</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-auto-columns: minmax(25px, auto);<br>
-              grid-auto-rows: min-content;
-              }</code>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...<span class="look-at-me-text">auto</span> value</figcaption>
-              <div class="grid-figure-implicit implicit-grid-auto">
-                <div class="grid-figure-child implicit-narrow-child">II</div>
-                <div class="grid-figure-child implicit-average-child">IIII</div>
-                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">(fr)actions</span> value</figcaption>
-              <div class="grid-figure-implicit implicit-grid-fr">
-                <div class="grid-figure-child implicit-narrow-child">II</div>
-                <div class="grid-figure-child implicit-average-child">IIII</div>
-                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">percentages</span> value</figcaption>
-              <div class="grid-figure-implicit implicit-grid-per">
-                <div class="grid-figure-child implicit-narrow-child">II</div>
-                <div class="grid-figure-child implicit-average-child">IIII</div>
-                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">minmax</span> value</figcaption>
-              <div class="grid-figure-implicit implicit-grid-minmax">
-                <div class="grid-figure-child implicit-narrow-child">II</div>
-                <div class="grid-figure-child implicit-average-child">IIII</div>
-                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">min-content</span> value</figcaption>
-              <div class="grid-figure-implicit implicit-grid-min-content">
-                <div class="grid-figure-child implicit-narrow-child">II</div>
-                <div class="grid-figure-child implicit-average-child">IIII</div>
-                <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
-              </div>
-            </figure>
-          </div>
-          <!--Grid Container - grid-auto-flow property-->
-          <div id="container-grid-auto-flow" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Grid Auto Flow</h5>
-            <p>So as well as not <span class="look-at-me-text">explicitly</span> defining the columns and rows in the grid (and <span class="code-word">grid-auto-columns</span> &amp; <span class="code-word">grid-auto-rows</span> come into play), there is also what happens when <span class="code-word">grid-items</span> are not explicitly placed which leads us to... <span class="code-word">auto-placement algorithm</span> which, as the name might kinda give away, is dictating how items are automatically placed in the grid.</p>
-            <p>The values that can be set are:</p>
-            <ul class="property-value-list">
-              <li>row</li>
-              <li>column</li>
-              <li>dense</li>
-            </ul>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              grid-auto-flow: column;
-              grid-gap: 10px;<br>
-              }</code>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">row</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
-              <div class="grid-figure-box grid-auto-flow-row">
-                <div class="grid-figure-child implicit-wide-child">Alpha</div>
-                <div class="grid-figure-child">Beta</div>
-                <div class="grid-figure-child">Charlie</div>
-                <div class="grid-figure-child implicit-narrow-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">column</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
-              <div class="grid-figure-box grid-auto-flow-col">
-                <div class="grid-figure-child implicit-wide-child">Alpha</div>
-                <div class="grid-figure-child">Beta</div>
-                <div class="grid-figure-child">Charlie</div>
-                <div class="grid-figure-child implicit-narrow-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-              </div>
-            </figure>
-            <figure class="grid-figure">
-              <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">dense</span> layout (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
-              <div class="grid-figure-box grid-auto-flow-dense">
-                <div class="grid-figure-child implicit-wide-child">Alpha</div>
-                <div class="grid-figure-child">Beta</div>
-                <div class="grid-figure-child">Charlie</div>
-                <div class="grid-figure-child implicit-narrow-child">I</div>
-                <div class="grid-figure-child">II</div>
-                <div class="grid-figure-child">III</div>
-              </div>
-              <p>Using <span class="look-at-me-text">dense</span> only visually changes appearance so may be accessibility issues for content appearing out of order! </p>
-            </figure>
-          </div>
-          <!--Grid Container - grid property-->
-          <div id="container-grid" class="section-subsection-content-info">
-            <h5 class="sub-heading-text">Grid</h5>
-            <p>Now to put it <span class="really-look-at-me-text">ALL</span> together! <span class="code-word">grid</span> is the shorthand for setting...<span class="code-word">grid-template-rows</span>, <span class="code-word">grid-template-columns</span>, <span class="code-word">grid-template-areas</span>, <span class="code-word">grid-auto-rows</span>, <span class="code-word">grid-auto-columns</span>, and <span class="code-word">grid-auto-flow</span> all into a single declaration.</p>
-            <p>So....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-columns: 100px auto 100px;<br>
-              grid-template-rows: 50px 50% 50px; <br>
-              }</code>
-            <p>can also be written as....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid: 100px auto 100px / 50px 50% 50px;<br>
-              }</code>
-            <p>Or....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-auto-flow: row; <br>
-              grid-template-columns: 100px auto 100px;<br>
-              }</code>
-            <p>can also be written as....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid: auto-flow / 100px auto 100px;<br>
-              }</code>
-            <p>And even....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-auto-flow: row dense;<br>
-              grid-auto-rows: 100px;<br>
-              grid-template-columns: 1fr 2fr;<br>
-              }</code>
-            <p>can also be written as....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid: auto-flow dense 100px / 1fr 2fr;<br>
-              }</code>
-            <p>Similar to....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-rows: 100px 300px;<br>
-              grid-auto-flow: column;<br>
-              grid-auto-columns: 200px;<br>
-              }</code>
-            <p>written as....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid: 100px 300px / auto-flow 200px;<br>
-              }</code>
-            <p>Now are you ready for this....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid-template-areas:<br>
-              "header header header" <br>
-              "main main main";<br>
-              grid-auto-flow: column;<br>
-              grid-auto-columns: 200px;<br>
-              }</code>
-            <p>written as....</p>
-            <code class="code-box">.container { <br>
-              display: grid;<br>
-              grid: [row1-start] "header header header" 1fr [row1-end]
-              [row2-start] "footer footer footer" 25px [row2-end]
-              / auto 50px auto;<br>
-              }</code>
-          </div>
-        </div>
-        <!--section 3of4 How to use Grid subsection 2of2 Grid items-->
-        <div id="how-grid-item" class="section-subsection-container">
-          <div class="section-subsection-header">
-            <h5>Grid Items</h5>
-          </div>
-          <div class="section-subsection-content">
-            <p>Now that we have out grid container created we wil look a bit closer at the <span class="look-at-me-text">grid items</span> (grid children) we will be placing in the grid.</p>
-            <p>Properties for the grid items...</p>
-            <ul class="section-subsection-content-list">
-              <li><a href="#gitem-grid-col-row-start-end">grid-column-start</a></li>
-              <li><a href="#gitem-grid-col-row-start-end">grid-column-end</a></li>
-              <li><a href="#gitem-grid-col-row-start-end">grid-row-start</a></li>
-              <li><a href="#gitem-grid-col-row-start-end">grid-row-end</a></li>
-              <li><a href="#gitem-grid-col-row">grid-column</a></li>
-              <li><a href="#gitem-grid-col-row">grid-row</a></li>
-              <li><a href="#gitem-grid-area">grid-area</a></li>
-              <li><a href="#gitem-grid-justify-self">justify-self</a></li>
-              <li><a href="#gitem-grid-align-self">align-self</a></li>
-              <li><a href="#gitem-grid-place-self">place-self</a></li>
-            </ul>
-            <p>It will be a 3 x 3 grid used for examples with named lines as follows:</p>
-            <p><span class="look-at-me-text">&quot;top-left ... top-center-left ... top-center-right ... top-right&quot;</span></p>
-            <p><span class="look-at-me-text">&quot;center-left ... center-center-left ... center-center-right ... center-right&quot;</span></p>
-            <p><span class="look-at-me-text">&quot;bottom-left ... bottom-center-left ... bottom-center-right ... bottom-right&quot;</span></p>
-            <!--Grid Item - grid-column-start, grid-column-end, grid-row-start and grid-row-end property-->
-            <div id="gitem-grid-col-row-start-end" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Column Start &amp; End and Row Start &amp; End</h5>
-              <p>We use these properties when we want to place a grid-item in the grid by choosing the column or row start line and the column or row end line.</p>
-              <p>The values that can be set are:</p>
-              <ul class="property-value-list">
-                <li>line - number</li>
-                <li>line - name</li>
-                <li>span - number</li>
-                <li>spam - name</li>
-                <li>auto</li>
-              </ul>
-              <figure class="grid-figure">
-                <figcaption>Set the <span class="look-at-me-text">grid item</span> to take up the entire top row.</figcaption>
-                <div class="gitem-container-box">
-                  <div class="grid-figure-child gitem-example-toprow">I am an item!</div>
-                </div>
-              </figure>
-              <p>There are a few ways we can do this...starting with the line numbers</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: 1;<br>
-                grid-column-end: 4;<br>
+              <code class="code-box"> .item {<br>
+                grid-column-start: col1 2; <span class="look-at-me-text">/*starts from the second col1 line*/</span><br>
                 }</code>
-              <p>or the negative line numbers...</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: -1;<br>
-                grid-column-end: -4;<br>
-                }</code>
-              <p>or the line numbers...with span</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: 1;<br>
-                grid-column-end: span 3;<br>
-                }</code>
-              <p>or the line names...</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: top-left;<br>
-                grid-column-end: span bottom-left;<br>
-                }</code>
-              <p>If you use <span class="look-at-me-text">auto</span> it sets the item to use an automatic span or placement (default span is 1).</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: auto;<br>
-                }</code>
-              <figure class="grid-figure">
-                <figcaption>Set the <span class="look-at-me-text">grid item</span> to use <span class="look-at-me-text">auto</span>...</figcaption>
-                <div class="gitem-container-box">
-                  <div class="grid-figure-child gitem-example-toprow-auto">I am an item!</div>
-                </div>
-              </figure>
-              <p>And for the other direction...</p>
-              <figure class="grid-figure">
-                <figcaption>Set the <span class="look-at-me-text">grid item</span> to take up the entire last column.</figcaption>
-                <div class="gitem-container-box">
-                  <div class="grid-figure-child gitem-example-lastcol">I am an item!</div>
-                </div>
-              </figure>
-              <p>There are a few ways we can do this...starting with the line numbers</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: -1;<br>
-                grid-row-start: 1;<br>
-                grid-row-end: 4;<br>
-                }</code>
-              <p>or the negative line numbers...</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: -1;<br>
-                grid-row-start: -4;<br>
-                grid-row-end: -1;<br>
-                }</code>
-              <p>or the line numbers...with span</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: -1;<br>
-                grid-row-start: 1;<br>
-                grid-row-end: span 3;<br>
-                }</code>
-              <p>or the line names...</p>
-              <code class="code-box">.item {<br>
-                grid-column-start: top-right;<br>
-                grid-row-start: top-right;<br>
-                grid-row-end: span bottom-right;<br>
-                }</code>
-              <p>If the <span class="code-word">column-end</span> or <span class="code-word">row-end</span> is not specified the item will span 1 track.</p>
-              <p>Items can overlap too (use <span class="look-at-me-text">z-index</span> for stacking order).</p>
-            </div>
-            <!--Grid Item - grid-column and grid-row property-->
-            <div id="gitem-grid-col-row" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Column and Row</h5>
-              <p>Guess what....there is a shorthand for <span class="code-word">grid-column-start</span> &amp; <span class="code-word">grid-column-end</span> and <span class="code-word">grid-row-start</span> &amp; <span class="code-word">grid-row-end</span> which is....you guessed it...<span class="code-word">grid-column</span> and <span class="code-word">grid-row</span>!!</p>
-              <p>So...</p>
-              <code class="code-box">.item { <br>
-                grid-column-start: 1;<br>
-                grid-column-end: span 3;<br>
-                grid-row-start: 1;<br>
-                grid-row-end: 4;<br>
+              <p>and last of all...we have <span class="look-at-me-text">repeat()</span>!</p>
+              <code class="code-box">.container {<br>
+                display: grid;<br>
+                grid-template-columns: [col1] 1fr [col1] 1fr [col1] 1fr [col1];<br>
+                grid-template-rows: 1fr 1fr 1fr;<br>
                 }</code>
               <p>can be written as...</p>
-              <code class="code-box">.item { <br>
-                grid-column: 1 / span 3;<br>
-                grid-row: 1 / 4;<br>
+              <code class="code-box">.container {<br>
+                display: grid;<br>
+                grid-template-columns: repeat(3, 1fr [col1]);<br>
+                grid-template-rows: repeat (3 1fr);<br>
                 }</code>
-              <code class="code-box"></code>
+              <p>There is some extra magic we can use with <span class="look-at-me-text">repeat()</span>...<span class="look-at-me-text">auto-fit</span> and <span class="look-at-me-text">auto-fill</span>.</p>
+              <code class="code-box">.container {<br>
+                display: grid;<br>
+                grid-template-columns: repeat(auto-fit, 200px);<br>
+                }</code>
+              <p>Using <span class="look-at-me-text">auto-fit</span> will add extra columns but if no content will size as 0 so no extra blank space shows.</p>
+              <code class="code-box">.container {<br>
+                display: grid;<br>
+                grid-template-columns: repeat(auto-fill, 200px);<br>
+                }</code>
+              <p>Using <span class="look-at-me-text">auto-fill</span> will add extra columns with no content, but shows as blank space.</p>
             </div>
-            <!--Grid Item - grid-area property-->
-            <div id="gitem-grid-area" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Grid Area</h5>
-              <p>There are two ways that <span class="code-word">grid-area</span> can be used:</p>
-              <ol>
-                <li>An even shorter shorthand for <span class="code-word">grid-column-start</span> &amp; <span class="code-word">grid-column-end</span> and <span class="code-word">grid-row-start</span> &amp; <span class="code-word">grid-row-end</span></li>
-                <li>To give an item a name so it can be used hand in hand with named sections of the grid created with <span class="code-word">grid-template-areas</span></li>
-              </ol>
-              <p>So using short-shorthand means that...</p>
-              <code class="code-box">.item { <br>
-                grid-column-start: 1;<br>
-                grid-column-end: span 3;<br>
-                grid-row-start: 1;<br>
-                grid-row-end: 4;<br>
-                }</code>
-              <p>instead of being written as...</p>
-              <code class="code-box">.item { <br>
-                grid-column: 1 / span 3;<br>
-                grid-row: 1 / 4;<br>
-                }</code>
-              <p>is written as...</p>
-              <code class="code-box">.item { <br>
-                <span class="look-at-me-text">/* row-start / column-start / row-end / column-end */</span> <br>
-                grid-area: 1 / 1 / 4 / span 3;<br>
-                }</code>
-              <p>BUT...my prefered method would be using it this way...</p>
+            <!--Grid Container - grid-template-area property-->
+            <div id="container-grid-temp-area" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Template Areas</h5>
+              <p>Using <span class="code-word">grid-template-areas</span> gives a visual representation of the grid and content. The grid is defined by referencing the <span class="code-word">grid-area</span> for each cell.</p>
               <code class="code-box">.container {<br>
                 display: grid;<br>
                 grid-template-areas:<br>
                 "header header header"<br>
-                "nav main main" <br>
-                "footer footer footer"; <br>
+                "nav main none" <span class="look-at-me-text">/*using none means no grid area defined*/</span><br>
+                ". footer footer"; <span class="look-at-me-text">/*using . means an empty grid cell*/</span><br>
                 grid-template-columns: repeat(3 1fr);<br>
                 grid-template-rows: auto;<br>
                 }<br>
@@ -1049,11 +269,68 @@ Finding your way around
                 footer {<br>
                 grid-area: footer;<br>
                 }</code>
+              <p>Each row needs to have the same number of cells!!!</p>
+              <p>When using <span class="code-word">grid-template-areas</span> the <span class="look-at-me-text">grid-lines</span> are automatically named, for example for the grid area named <span class="look-at-me-text">header</span> the name of the area’s starting row line and starting column line will be <span class="look-at-me-text">header-start</span> and the name of its last row line and last column line will be <span class="look-at-me-text">header-end</span> (some lines might have multiple names).</p>
             </div>
-            <!--Grid Item - grid-justify-self property-->
-            <div id="gitem-grid-justify-self" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Justify Self</h5>
-              <p>This applies only the grid item in a single cell and is used to align along the <span class="look-at-me-text">row</span> (inline) axis</p>
+            <!--Grid Container - grid-template property-->
+            <div id="container-grid-temp" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Template</h5>
+              <p>The shorthand for for setting <span class="code-word">grid-template-rows</span>, <span class="code-word">grid-template-columns</span>, and <span class="code-word">grid-template-areas</span> is <span class="code-word">grid-template</span>.</p>
+              <p>So this...</p>
+              <code class="code-box">.container {<br>
+                display: grid;<br>
+                grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];<br>
+                grid-template-columns: auto 50px auto;<br>
+                grid-template-areas:<br>
+                "header header header"<br>
+                "footer footer footer";<br>
+                }</code>
+              <p>can instead be written as...</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template:<br>
+                [row1-start] "header header header" 25px [row1-end]<br>
+                [row2-start] "footer footer footer" 25px [row2-end]<br>
+                / auto 50px auto;<br>
+                }</code>
+              <p>The order is <span class="code-word">grid-template: rows / columns;</span></p>
+              <p>However, <span class="code-word">grid</span> (coming up soon) is used more often than <span class="code-word">grid-template</span>.</p>
+            </div>
+            <!--Grid Container - grid-column-gap & grid-row-gap properties-->
+            <div id="container-grid-col-row-gap" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Column Gap &amp; Row Gap</h5>
+              <p>This specifies the size of the grid lines... the space between the grid cells. It is only applied between cells (not the outside edges)</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                column-gap: 10px;<br>
+                row-gap: 15px;<br>
+                }</code>
+            </div>
+            <!--Grid Container - grid-gap property-->
+            <div id="container-grid-gap" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Gap</h5>
+              <p>You would be correct if you guessed that <span class="code-word">grid-gap</span> was the shorthand for <span class="code-word">column-gap</span> and <span class="code-word">row-gap</span>.</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px 10px;<br>
+                }</code>
+              <p>or...</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                }</code>
+              <p>If <span class="code-word">row-gap</span> is not specified it will take the same value as <span class="code-word">column-gap</span></p>
+            </div>
+            <!--Grid Container - grid-justify-items property-->
+            <div id="container-grid-justify-items" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Justify Items</h5>
+              <p>To align <span class="look-at-me-text">grid-items</span> along the <span class="look-at-me-text">row</span> axis we use <span class="code-word">justify-items </span>.</p>
               <p>The values that can be set are:</p>
               <ul class="property-value-list">
                 <li>start</li>
@@ -1061,132 +338,853 @@ Finding your way around
                 <li>center</li>
                 <li>stretch</li>
               </ul>
-              <code class="code-box">.item { <br>
-                justify-self: center;<br>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                justify-items: center;<br>
                 }</code>
             </div>
-            <!--Grid Item - grid-align-self property-->
-            <div id="gitem-grid-align-self" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Align Self</h5>
-              <p>Using <span class="code-word">justify-self</span> aligns along the <span class="look-at-me-text">row</span> (inline) axis and <span class="code-word">align-self</span> aligns along the <span class="look-at-me-text">column</span> (block) axis.</p>
-              <p>The values are the same as those available for <span class="code-word">justify-self</span>:</p>
+            <!--Grid Container - align-item property-->
+            <div id="container-grid-align-items" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Align Items</h5>
+              <p>To align <span class="look-at-me-text">grid-items</span> along the <span class="look-at-me-text">column</span> axis we use <span class="code-word">align-items </span> (where <span class="code-word">justify-items</span> was aligning to the row axis).</p>
+              <p>The values that can be set are the same as those used with <span class="code-word">justify-items</span>:</p>
               <ul class="property-value-list">
                 <li>start</li>
                 <li>end</li>
                 <li>center</li>
                 <li>stretch</li>
               </ul>
-              <code class="code-box">.item { <br>
-                justify-self: center;<br>
-                align-self: center;<br>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                justify-items: center;<br>
+                align-items: center;
                 }</code>
               <figure class="grid-figure">
-                <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">start</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">end</span> on grid.</figcaption>
-                <div class="gitem-container-box grid-justify-end">
-                  <div class="grid-figure-child grid-justify-self-start">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child ">III</div>
-                  <div class="grid-figure-child">IV</div>
-                  <div class="grid-figure-child">V</div>
-                  <div class="grid-figure-child">VI</div>
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">start</span> </figcaption>
+                <div class="grid-figure-box grid-justify-start">
+                  <div class="grid-figure-child grid-justify-row1 child-a">I</div>
+                  <div class="grid-figure-child grid-justify-row1 child-b">II</div>
+                  <div class="grid-figure-child grid-justify-row1 child-c">III</div>
+                  <div class="grid-figure-child grid-justify-row2 child-d">IV</div>
+                  <div class="grid-figure-child grid-justify-row2 child-e">V</div>
+                  <div class="grid-figure-child grid-justify-row2 child-f">VI</div>
+                  <div class="grid-figure-child grid-justify-row3 child-g">VII</div>
+                  <div class="grid-figure-child grid-justify-row3 child-h">VIII</div>
+                  <div class="grid-figure-child grid-justify-row3 child-i">VIIII</div>
                 </div>
               </figure>
               <figure class="grid-figure">
-                <figcaption>Seeing is believing...<span class="code-word">align-self</span> <span class="look-at-me-text">start</span> on <span class="look-at-me-text">I</span> when <span class="code-word">align-items</span> set to <span class="look-at-me-text">end</span> on grid.</figcaption>
-                <div class="gitem-container-box grid-align-end">
-                  <div class="grid-figure-child grid-align-self-start">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child ">III</div>
-                  <div class="grid-figure-child">IV</div>
-                  <div class="grid-figure-child">V</div>
-                  <div class="grid-figure-child">VI</div>
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">start</span> </figcaption>
+                <div class="grid-figure-box grid-align-start">
+                  <div class="grid-figure-child grid-align-col1 child-a">I</div>
+                  <div class="grid-figure-child grid-align-col2 child-b">II</div>
+                  <div class="grid-figure-child grid-align-col3 child-c">III</div>
+                  <div class="grid-figure-child grid-align-col1 child-d">IV</div>
+                  <div class="grid-figure-child grid-align-col2 child-e">V</div>
+                  <div class="grid-figure-child grid-align-col3 child-f">VI</div>
+                  <div class="grid-figure-child grid-align-col1 child-g">VII</div>
+                  <div class="grid-figure-child grid-align-col2 child-h">VIII</div>
+                  <div class="grid-figure-child grid-align-col3 child-i">VIIII</div>
                 </div>
               </figure>
               <figure class="grid-figure">
-                <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">end</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
-                <div class="gitem-container-box grid-justify-start">
-                  <div class="grid-figure-child grid-justify-self-end">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child ">III</div>
-                  <div class="grid-figure-child">IV</div>
-                  <div class="grid-figure-child">V</div>
-                  <div class="grid-figure-child">VI</div>
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">end</span> </figcaption>
+                <div class="grid-figure-box grid-justify-end">
+                  <div class="grid-figure-child grid-justify-row1 child-a">I</div>
+                  <div class="grid-figure-child grid-justify-row1 child-b">II</div>
+                  <div class="grid-figure-child grid-justify-row1 child-c">III</div>
+                  <div class="grid-figure-child grid-justify-row2 child-d">IV</div>
+                  <div class="grid-figure-child grid-justify-row2 child-e">V</div>
+                  <div class="grid-figure-child grid-justify-row2 child-f">VI</div>
+                  <div class="grid-figure-child grid-justify-row3 child-g">VII</div>
+                  <div class="grid-figure-child grid-justify-row3 child-h">VIII</div>
+                  <div class="grid-figure-child grid-justify-row3 child-i">VIIII</div>
                 </div>
               </figure>
               <figure class="grid-figure">
-                <figcaption>Seeing is believing...<span class="code-word">align-self</span> <span class="look-at-me-text">end</span> on <span class="look-at-me-text">I</span> when <span class="code-word">align-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
-                <div class="gitem-container-box grid-align-start">
-                  <div class="grid-figure-child grid-align-self-end">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child ">III</div>
-                  <div class="grid-figure-child">IV</div>
-                  <div class="grid-figure-child">V</div>
-                  <div class="grid-figure-child">VI</div>
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">end</span> </figcaption>
+                <div class="grid-figure-box grid-align-end">
+                  <div class="grid-figure-child grid-align-col1 child-a">I</div>
+                  <div class="grid-figure-child grid-align-col2 child-b">II</div>
+                  <div class="grid-figure-child grid-align-col3 child-c">III</div>
+                  <div class="grid-figure-child grid-align-col1 child-d">IV</div>
+                  <div class="grid-figure-child grid-align-col2 child-e">V</div>
+                  <div class="grid-figure-child grid-align-col3 child-f">VI</div>
+                  <div class="grid-figure-child grid-align-col1 child-g">VII</div>
+                  <div class="grid-figure-child grid-align-col2 child-h">VIII</div>
+                  <div class="grid-figure-child grid-align-col3 child-i">VIIII</div>
                 </div>
               </figure>
               <figure class="grid-figure">
-                <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">center</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
-                <div class="gitem-container-box grid-justify-start">
-                  <div class="grid-figure-child grid-justify-self-center">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child ">III</div>
-                  <div class="grid-figure-child">IV</div>
-                  <div class="grid-figure-child">V</div>
-                  <div class="grid-figure-child">VI</div>
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">center</span> </figcaption>
+                <div class="grid-figure-box grid-justify-center">
+                  <div class="grid-figure-child grid-justify-row1 child-a">I</div>
+                  <div class="grid-figure-child grid-justify-row1 child-b">II</div>
+                  <div class="grid-figure-child grid-justify-row1 child-c">III</div>
+                  <div class="grid-figure-child grid-justify-row2 child-d">IV</div>
+                  <div class="grid-figure-child grid-justify-row2 child-e">V</div>
+                  <div class="grid-figure-child grid-justify-row2 child-f">VI</div>
+                  <div class="grid-figure-child grid-justify-row3 child-g">VII</div>
+                  <div class="grid-figure-child grid-justify-row3 child-h">VIII</div>
+                  <div class="grid-figure-child grid-justify-row3 child-i">VIIII</div>
                 </div>
               </figure>
               <figure class="grid-figure">
-                <figcaption>Seeing is believing...<span class="code-word">align-self</span> <span class="look-at-me-text">center</span> on <span class="look-at-me-text">I</span> when <span class="code-word">align-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
-                <div class="gitem-container-box grid-align-start">
-                  <div class="grid-figure-child grid-align-self-center">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child ">III</div>
-                  <div class="grid-figure-child">IV</div>
-                  <div class="grid-figure-child">V</div>
-                  <div class="grid-figure-child">VI</div>
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">center</span> </figcaption>
+                <div class="grid-figure-box grid-align-center">
+                  <div class="grid-figure-child grid-align-col1 child-a">I</div>
+                  <div class="grid-figure-child grid-align-col2 child-b">II</div>
+                  <div class="grid-figure-child grid-align-col3 child-c">III</div>
+                  <div class="grid-figure-child grid-align-col1 child-d">IV</div>
+                  <div class="grid-figure-child grid-align-col2 child-e">V</div>
+                  <div class="grid-figure-child grid-align-col3 child-f">VI</div>
+                  <div class="grid-figure-child grid-align-col1 child-g">VII</div>
+                  <div class="grid-figure-child grid-align-col2 child-h">VIII</div>
+                  <div class="grid-figure-child grid-align-col3 child-i">VIIII</div>
                 </div>
               </figure>
               <figure class="grid-figure">
-                <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">stretch</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
-                <div class="gitem-container-box grid-justify-start">
-                  <div class="grid-figure-child grid-justify-self-stretch">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child ">III</div>
-                  <div class="grid-figure-child">IV</div>
-                  <div class="grid-figure-child">V</div>
-                  <div class="grid-figure-child">VI</div>
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">stretch</span> </figcaption>
+                <div class="grid-figure-box grid-justify-stretch">
+                  <div class="grid-figure-child grid-justify-row1 child-a">I</div>
+                  <div class="grid-figure-child grid-justify-row1 child-b">II</div>
+                  <div class="grid-figure-child grid-justify-row1 child-c">III</div>
+                  <div class="grid-figure-child grid-justify-row2 child-d">IV</div>
+                  <div class="grid-figure-child grid-justify-row2 child-e">V</div>
+                  <div class="grid-figure-child grid-justify-row2 child-f">VI</div>
+                  <div class="grid-figure-child grid-justify-row3 child-g">VII</div>
+                  <div class="grid-figure-child grid-justify-row3 child-h">VIII</div>
+                  <div class="grid-figure-child grid-justify-row3 child-i">VIIII</div>
                 </div>
               </figure>
               <figure class="grid-figure">
-                <figcaption>Seeing is believing...<span class="code-word">align-self</span> <span class="look-at-me-text">stretch</span> on <span class="look-at-me-text">I</span> when <span class="code-word">align-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
-                <div class="gitem-container-box grid-align-start">
-                  <div class="grid-figure-child grid-align-self-stretch">I</div>
-                  <div class="grid-figure-child">II</div>
-                  <div class="grid-figure-child ">III</div>
-                  <div class="grid-figure-child">IV</div>
-                  <div class="grid-figure-child">V</div>
-                  <div class="grid-figure-child">VI</div>
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">stretch</span> </figcaption>
+                <div class="grid-figure-box grid-align-stretch">
+                  <div class="grid-figure-child grid-align-col1 child-a">I</div>
+                  <div class="grid-figure-child grid-align-col2 child-b">II</div>
+                  <div class="grid-figure-child grid-align-col3 child-c">III</div>
+                  <div class="grid-figure-child grid-align-col1 child-d">IV</div>
+                  <div class="grid-figure-child grid-align-col2 child-e">V</div>
+                  <div class="grid-figure-child grid-align-col3 child-f">VI</div>
+                  <div class="grid-figure-child grid-align-col1 child-g">VII</div>
+                  <div class="grid-figure-child grid-align-col2 child-h">VIII</div>
+                  <div class="grid-figure-child grid-align-col3 child-i">VIIII</div>
                 </div>
               </figure>
             </div>
-            <!--Grid Item - grid-place-self property-->
-            <div id="gitem-grid-place-self" class="section-subsection-content-info">
-              <h5 class="sub-heading-text">Place Self</h5>
-              <p>You'll never have guessed this but <span class="code-word">place-self</span> is the shorthand for <span class="code-word">justify-self</span> and <span class="code-word">align-self</span>!</p>
-              <p>So we can write...</p>
-              <code class="code-box">.item { <br>
-                align-self: center;<br>
-                justify-self: start;<br>
+            <!--Grid Container - place-items property-->
+            <div id="container-grid-place-items" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Place Items</h5>
+              <p>The shorthand for <span class="code-word">justify-items</span> and <span class="code-word">align-items</span> is...you've guessed it...<span class="code-word">place-items</span>!</p>
+              <p>Instead of...</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                justify-items: center;<br>
+                align-items: center;<br>
                 }</code>
               <p>You can use...</p>
-              <code class="code-box">.item { <br>
-                place-self: center start;<br>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                place-items: center stretch;<br>
                 }</code>
-              <p>The first value is for <span class="code-word">align-self</span> and the second for <span class="code-word">justify-self</span>...although if you set only one value both will use it <span class="code-word">place-self: center;</span></p>
+              <p>The first value is for <span class="code-word">align-items</span> and the second for <span class="code-word">justify-items</span>...although if you set only one value both will use it <span class="code-word">place-items: center;</span></p>
+            </div>
+            <!--Grid Container - grid-justify-content property-->
+            <div id="container-grid-justify-content" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Justify Content</h5>
+              <p>We use <span class="code-word">justify-content</span> (and the upcoming <span class="code-word">align-content</span>) to align the grid along the <span class="look-at-me-text">row</span> (inline) axis when the total size of the grid is smaller than the grid container itself...such as can happen if the <span class="look-at-me-text">grid-items</span> are a fixed size.</p>
+              <p>The values that can be set are:</p>
+              <ul class="property-value-list">
+                <li>start</li>
+                <li>end</li>
+                <li>center</li>
+                <li>stretch</li>
+                <li>space-around</li>
+                <li>space-between</li>
+                <li>space-evenly</li>
+              </ul>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                justify-content: center;<br>
+                }</code>
+
+            </div>
+            <!--Grid Container - align-content property-->
+            <div id="container-grid-align-content" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Align Content</h5>
+              <p>Similar to <span class="code-word">justify-content</span> we use <span class="code-word">align-content</span>) to align the grid along the <span class="look-at-me-text">column</span> (block) axis.</p>
+              <p>The values that can be set are the same as used with <span class="code-word">justify-content</span>:</p>
+              <ul class="property-value-list">
+                <li>start</li>
+                <li>end</li>
+                <li>center</li>
+                <li>stretch</li>
+                <li>space-around</li>
+                <li>space-between</li>
+                <li>space-evenly</li>
+              </ul>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                align-content: center;<br>
+                }</code>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">start</span> </figcaption>
+                <div class="grid-figure-box-row grid-justify-content-start">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">start</span> </figcaption>
+                <div class="grid-figure-box-row grid-align-content-start">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">end</span> </figcaption>
+                <div class="grid-figure-box-row grid-justify-content-end">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">end</span> </figcaption>
+                <div class="grid-figure-box-row grid-align-content-end">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">center</span> </figcaption>
+                <div class="grid-figure-box-row grid-justify-content-center">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">center</span> </figcaption>
+                <div class="grid-figure-box-row grid-align-content-center">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...justify <span class="look-at-me-text">stretch</span> </figcaption>
+                  <div class="grid-figure-box-row grid-justify-content-stretch">
+                    <div class="grid-figure-child">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child">III</div>
+                    <div class="grid-figure-child">IV</div>
+                  </div>
+                </figure>
+
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">stretch</span> </figcaption>
+                <div class="grid-figure-box-row grid-align-content-stretch">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-around</span> </figcaption>
+                <div class="grid-figure-box-row grid-justify-content-space-around">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">space-around</span> </figcaption>
+                <div class="grid-figure-box-row grid-align-content-space-around">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-between</span> </figcaption>
+                <div class="grid-figure-box-row grid-justify-content-space-between">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">space-between</span> </figcaption>
+                <div class="grid-figure-box-row grid-align-content-space-between">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...justify <span class="look-at-me-text">space-evenly</span> </figcaption>
+                <div class="grid-figure-box-row grid-justify-content-space-evenly">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...align <span class="look-at-me-text">space-evenly</span> </figcaption>
+                <div class="grid-figure-box-row grid-align-content-space-evenly">
+                  <div class="grid-figure-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                  <div class="grid-figure-child">IV</div>
+                </div>
+              </figure>
+            </div>
+            <!--Grid Container - place-content property-->
+            <div id="container-grid-place-content" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Place Content</h5>
+              <p>The shorthand for <span class="code-word">justify-content</span> and <span class="code-word">align-content</span> is...you've guessed coorectly yet again...it is...<span class="code-word">place-content</span>!</p>
+              <p>Instead of...</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                justify-content: center;<br>
+                align-content: center;<br>
+                }</code>
+              <p>You can use...</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-gap: 10px;<br>
+                place-content: center stretch;<br>
+                }</code>
+              <p>The first value is for <span class="code-word">align-content</span> and the second for <span class="code-word">justify-content</span>...although if you set only one value both will use it <span class="code-word">place-content: center;</span></p>
+            </div>
+            <!--Grid Container - grid-auto-columns property-->
+            <div id="container-grid-auto-col" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Auto Columns and Auto Rows</h5>
+              <p>All of the grids so far have been <span class="look-at-me-text">explicit grids</span> in that they are manually defined with set rowns or columns.</p>
+              <p>We are now going to look at <span class="look-at-me-text">implicit grids</span>. If a grid item is positioned into a column that is not explicitly sized by <span class="code-word"> grid-template-columns </span>, or <span class="code-word"> grid-template-rows </span>implicit grid tracks are created to hold it.</p>
+              <p>The values we can set for <span class="code-word">grid-auto-columns</span> or <span class="code-word"> grid-template-rows</span> are the same as used for and <span class="code-word">grid-template-rows</span>... length (px or rem , etc.), fraction (fr), percentage (%), minmax(), auto...and ones I have mentioned yet...min-content and fit-content!</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-auto-columns: minmax(25px, auto);<br>
+                grid-auto-rows: min-content;
+                }</code>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...<span class="look-at-me-text">auto</span> value</figcaption>
+                <div class="grid-figure-implicit implicit-grid-auto">
+                  <div class="grid-figure-child implicit-narrow-child">II</div>
+                  <div class="grid-figure-child implicit-average-child">IIII</div>
+                  <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">(fr)actions</span> value</figcaption>
+                <div class="grid-figure-implicit implicit-grid-fr">
+                  <div class="grid-figure-child implicit-narrow-child">II</div>
+                  <div class="grid-figure-child implicit-average-child">IIII</div>
+                  <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">percentages</span> value</figcaption>
+                <div class="grid-figure-implicit implicit-grid-per">
+                  <div class="grid-figure-child implicit-narrow-child">II</div>
+                  <div class="grid-figure-child implicit-average-child">IIII</div>
+                  <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">minmax</span> value</figcaption>
+                <div class="grid-figure-implicit implicit-grid-minmax">
+                  <div class="grid-figure-child implicit-narrow-child">II</div>
+                  <div class="grid-figure-child implicit-average-child">IIII</div>
+                  <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...<span class="code-word">grid-template-columns</span> with <span class="look-at-me-text">min-content</span> value</figcaption>
+                <div class="grid-figure-implicit implicit-grid-min-content">
+                  <div class="grid-figure-child implicit-narrow-child">II</div>
+                  <div class="grid-figure-child implicit-average-child">IIII</div>
+                  <div class="grid-figure-child implicit-wide-child">IIIIIIII</div>
+                </div>
+              </figure>
+            </div>
+            <!--Grid Container - grid-auto-flow property-->
+            <div id="container-grid-auto-flow" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid Auto Flow</h5>
+              <p>So as well as not <span class="look-at-me-text">explicitly</span> defining the columns and rows in the grid (and <span class="code-word">grid-auto-columns</span> &amp; <span class="code-word">grid-auto-rows</span> come into play), there is also what happens when <span class="code-word">grid-items</span> are not explicitly placed which leads us to... <span class="code-word">auto-placement algorithm</span> which, as the name might kinda give away, is dictating how items are automatically placed in the grid.</p>
+              <p>The values that can be set are:</p>
+              <ul class="property-value-list">
+                <li>row</li>
+                <li>column</li>
+                <li>dense</li>
+              </ul>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                grid-auto-flow: column;
+                grid-gap: 10px;<br>
+                }</code>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">row</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
+                <div class="grid-figure-box grid-auto-flow-row">
+                  <div class="grid-figure-child implicit-wide-child">Alpha</div>
+                  <div class="grid-figure-child">Beta</div>
+                  <div class="grid-figure-child">Charlie</div>
+                  <div class="grid-figure-child implicit-narrow-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">column</span> (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
+                <div class="grid-figure-box grid-auto-flow-col">
+                  <div class="grid-figure-child implicit-wide-child">Alpha</div>
+                  <div class="grid-figure-child">Beta</div>
+                  <div class="grid-figure-child">Charlie</div>
+                  <div class="grid-figure-child implicit-narrow-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                </div>
+              </figure>
+              <figure class="grid-figure">
+                <figcaption>Seeing is believing...auto-flow by <span class="look-at-me-text">dense</span> layout (<span class="look-at-me-text">Alpha</span> and <span class="look-at-me-text">I</span> in set column positions) </figcaption>
+                <div class="grid-figure-box grid-auto-flow-dense">
+                  <div class="grid-figure-child implicit-wide-child">Alpha</div>
+                  <div class="grid-figure-child">Beta</div>
+                  <div class="grid-figure-child">Charlie</div>
+                  <div class="grid-figure-child implicit-narrow-child">I</div>
+                  <div class="grid-figure-child">II</div>
+                  <div class="grid-figure-child">III</div>
+                </div>
+                <p>Using <span class="look-at-me-text">dense</span> only visually changes appearance so may be accessibility issues for content appearing out of order! </p>
+              </figure>
+            </div>
+            <!--Grid Container - grid property-->
+            <div id="container-grid" class="section-subsection-content-info">
+              <h5 class="sub-heading-text">Grid</h5>
+              <p>Now to put it <span class="really-look-at-me-text">ALL</span> together! <span class="code-word">grid</span> is the shorthand for setting...<span class="code-word">grid-template-rows</span>, <span class="code-word">grid-template-columns</span>, <span class="code-word">grid-template-areas</span>, <span class="code-word">grid-auto-rows</span>, <span class="code-word">grid-auto-columns</span>, and <span class="code-word">grid-auto-flow</span> all into a single declaration.</p>
+              <p>So....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-columns: 100px auto 100px;<br>
+                grid-template-rows: 50px 50% 50px; <br>
+                }</code>
+              <p>can also be written as....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid: 100px auto 100px / 50px 50% 50px;<br>
+                }</code>
+              <p>Or....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-auto-flow: row; <br>
+                grid-template-columns: 100px auto 100px;<br>
+                }</code>
+              <p>can also be written as....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid: auto-flow / 100px auto 100px;<br>
+                }</code>
+              <p>And even....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-auto-flow: row dense;<br>
+                grid-auto-rows: 100px;<br>
+                grid-template-columns: 1fr 2fr;<br>
+                }</code>
+              <p>can also be written as....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid: auto-flow dense 100px / 1fr 2fr;<br>
+                }</code>
+              <p>Similar to....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-rows: 100px 300px;<br>
+                grid-auto-flow: column;<br>
+                grid-auto-columns: 200px;<br>
+                }</code>
+              <p>written as....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid: 100px 300px / auto-flow 200px;<br>
+                }</code>
+              <p>Now are you ready for this....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid-template-areas:<br>
+                "header header header" <br>
+                "main main main";<br>
+                grid-auto-flow: column;<br>
+                grid-auto-columns: 200px;<br>
+                }</code>
+              <p>written as....</p>
+              <code class="code-box">.container { <br>
+                display: grid;<br>
+                grid: [row1-start] "header header header" 1fr [row1-end]
+                [row2-start] "footer footer footer" 25px [row2-end]
+                / auto 50px auto;<br>
+                }</code>
+            </div>
+          </div>
+          <!--section 3of4 How to use Grid subsection 2of2 Grid items-->
+          <div id="how-grid-item" class="section-subsection-container">
+            <div class="section-subsection-header">
+              <h5>Grid Items</h5>
+            </div>
+            <div class="section-subsection-content">
+              <p>Now that we have out grid container created we wil look a bit closer at the <span class="look-at-me-text">grid items</span> (grid children) we will be placing in the grid.</p>
+              <p>Properties for the grid items...</p>
+              <ul class="section-subsection-content-list">
+                <li><a href="#gitem-grid-col-row-start-end">grid-column-start</a></li>
+                <li><a href="#gitem-grid-col-row-start-end">grid-column-end</a></li>
+                <li><a href="#gitem-grid-col-row-start-end">grid-row-start</a></li>
+                <li><a href="#gitem-grid-col-row-start-end">grid-row-end</a></li>
+                <li><a href="#gitem-grid-col-row">grid-column</a></li>
+                <li><a href="#gitem-grid-col-row">grid-row</a></li>
+                <li><a href="#gitem-grid-area">grid-area</a></li>
+                <li><a href="#gitem-grid-justify-self">justify-self</a></li>
+                <li><a href="#gitem-grid-align-self">align-self</a></li>
+                <li><a href="#gitem-grid-place-self">place-self</a></li>
+              </ul>
+              <p>It will be a 3 x 3 grid used for examples with named lines as follows:</p>
+              <p><span class="look-at-me-text">&quot;top-left ... top-center-left ... top-center-right ... top-right&quot;</span></p>
+              <p><span class="look-at-me-text">&quot;center-left ... center-center-left ... center-center-right ... center-right&quot;</span></p>
+              <p><span class="look-at-me-text">&quot;bottom-left ... bottom-center-left ... bottom-center-right ... bottom-right&quot;</span></p>
+              <!--Grid Item - grid-column-start, grid-column-end, grid-row-start and grid-row-end property-->
+              <div id="gitem-grid-col-row-start-end" class="section-subsection-content-info">
+                <h5 class="sub-heading-text">Grid Column Start &amp; End and Row Start &amp; End</h5>
+                <p>We use these properties when we want to place a grid-item in the grid by choosing the column or row start line and the column or row end line.</p>
+                <p>The values that can be set are:</p>
+                <ul class="property-value-list">
+                  <li>line - number</li>
+                  <li>line - name</li>
+                  <li>span - number</li>
+                  <li>spam - name</li>
+                  <li>auto</li>
+                </ul>
+                <figure class="grid-figure">
+                  <figcaption>Set the <span class="look-at-me-text">grid item</span> to take up the entire top row.</figcaption>
+                  <div class="gitem-container-box">
+                    <div class="grid-figure-child gitem-example-toprow">I am an item!</div>
+                  </div>
+                </figure>
+                <p>There are a few ways we can do this...starting with the line numbers</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: 1;<br>
+                  grid-column-end: 4;<br>
+                  }</code>
+                <p>or the negative line numbers...</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: -1;<br>
+                  grid-column-end: -4;<br>
+                  }</code>
+                <p>or the line numbers...with span</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: 1;<br>
+                  grid-column-end: span 3;<br>
+                  }</code>
+                <p>or the line names...</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: top-left;<br>
+                  grid-column-end: span bottom-left;<br>
+                  }</code>
+                <p>If you use <span class="look-at-me-text">auto</span> it sets the item to use an automatic span or placement (default span is 1).</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: auto;<br>
+                  }</code>
+                <figure class="grid-figure">
+                  <figcaption>Set the <span class="look-at-me-text">grid item</span> to use <span class="look-at-me-text">auto</span>...</figcaption>
+                  <div class="gitem-container-box">
+                    <div class="grid-figure-child gitem-example-toprow-auto">I am an item!</div>
+                  </div>
+                </figure>
+                <p>And for the other direction...</p>
+                <figure class="grid-figure">
+                  <figcaption>Set the <span class="look-at-me-text">grid item</span> to take up the entire last column.</figcaption>
+                  <div class="gitem-container-box">
+                    <div class="grid-figure-child gitem-example-lastcol">I am an item!</div>
+                  </div>
+                </figure>
+                <p>There are a few ways we can do this...starting with the line numbers</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: -1;<br>
+                  grid-row-start: 1;<br>
+                  grid-row-end: 4;<br>
+                  }</code>
+                <p>or the negative line numbers...</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: -1;<br>
+                  grid-row-start: -4;<br>
+                  grid-row-end: -1;<br>
+                  }</code>
+                <p>or the line numbers...with span</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: -1;<br>
+                  grid-row-start: 1;<br>
+                  grid-row-end: span 3;<br>
+                  }</code>
+                <p>or the line names...</p>
+                <code class="code-box">.item {<br>
+                  grid-column-start: top-right;<br>
+                  grid-row-start: top-right;<br>
+                  grid-row-end: span bottom-right;<br>
+                  }</code>
+                <p>If the <span class="code-word">column-end</span> or <span class="code-word">row-end</span> is not specified the item will span 1 track.</p>
+                <p>Items can overlap too (use <span class="look-at-me-text">z-index</span> for stacking order).</p>
+              </div>
+              <!--Grid Item - grid-column and grid-row property-->
+              <div id="gitem-grid-col-row" class="section-subsection-content-info">
+                <h5 class="sub-heading-text">Grid Column and Row</h5>
+                <p>Guess what....there is a shorthand for <span class="code-word">grid-column-start</span> &amp; <span class="code-word">grid-column-end</span> and <span class="code-word">grid-row-start</span> &amp; <span class="code-word">grid-row-end</span> which is....you guessed it...<span class="code-word">grid-column</span> and <span class="code-word">grid-row</span>!!</p>
+                <p>So...</p>
+                <code class="code-box">.item { <br>
+                  grid-column-start: 1;<br>
+                  grid-column-end: span 3;<br>
+                  grid-row-start: 1;<br>
+                  grid-row-end: 4;<br>
+                  }</code>
+                <p>can be written as...</p>
+                <code class="code-box">.item { <br>
+                  grid-column: 1 / span 3;<br>
+                  grid-row: 1 / 4;<br>
+                  }</code>
+              </div>
+              <!--Grid Item - grid-area property-->
+              <div id="gitem-grid-area" class="section-subsection-content-info">
+                <h5 class="sub-heading-text">Grid Area</h5>
+                <p>There are two ways that <span class="code-word">grid-area</span> can be used:</p>
+                <ol>
+                  <li>An even shorter shorthand for <span class="code-word">grid-column-start</span> &amp; <span class="code-word">grid-column-end</span> and <span class="code-word">grid-row-start</span> &amp; <span class="code-word">grid-row-end</span></li>
+                  <li>To give an item a name so it can be used hand in hand with named sections of the grid created with <span class="code-word">grid-template-areas</span></li>
+                </ol>
+                <p>So using short-shorthand means that...</p>
+                <code class="code-box">.item { <br>
+                  grid-column-start: 1;<br>
+                  grid-column-end: span 3;<br>
+                  grid-row-start: 1;<br>
+                  grid-row-end: 4;<br>
+                  }</code>
+                <p>instead of being written as...</p>
+                <code class="code-box">.item { <br>
+                  grid-column: 1 / span 3;<br>
+                  grid-row: 1 / 4;<br>
+                  }</code>
+                <p>is written as...</p>
+                <code class="code-box">.item { <br>
+                  <span class="look-at-me-text">/* row-start / column-start / row-end / column-end */</span> <br>
+                  grid-area: 1 / 1 / 4 / span 3;<br>
+                  }</code>
+                <p>BUT...my prefered method would be using it this way...</p>
+                <code class="code-box">.container {<br>
+                  display: grid;<br>
+                  grid-template-areas:<br>
+                  "header header header"<br>
+                  "nav main main" <br>
+                  "footer footer footer"; <br>
+                  grid-template-columns: repeat(3 1fr);<br>
+                  grid-template-rows: auto;<br>
+                  }<br>
+                  <br>
+                  header {<br>
+                  grid-area: header;<br>
+                  }<br>
+                  <br>
+                  nav {<br>
+                  grid-area: nav;<br>
+                  }<br>
+                  <br>
+                  main {<br>
+                  grid-area: main;<br>
+                  }<br>
+                  <br>
+                  footer {<br>
+                  grid-area: footer;<br>
+                  }</code>
+              </div>
+              <!--Grid Item - grid-justify-self property-->
+              <div id="gitem-grid-justify-self" class="section-subsection-content-info">
+                <h5 class="sub-heading-text">Justify Self</h5>
+                <p>This applies only the grid item in a single cell and is used to align along the <span class="look-at-me-text">row</span> (inline) axis</p>
+                <p>The values that can be set are:</p>
+                <ul class="property-value-list">
+                  <li>start</li>
+                  <li>end</li>
+                  <li>center</li>
+                  <li>stretch</li>
+                </ul>
+                <code class="code-box">.item { <br>
+                  justify-self: center;<br>
+                  }</code>
+              </div>
+              <!--Grid Item - grid-align-self property-->
+              <div id="gitem-grid-align-self" class="section-subsection-content-info">
+                <h5 class="sub-heading-text">Align Self</h5>
+                <p>Using <span class="code-word">justify-self</span> aligns along the <span class="look-at-me-text">row</span> (inline) axis and <span class="code-word">align-self</span> aligns along the <span class="look-at-me-text">column</span> (block) axis.</p>
+                <p>The values are the same as those available for <span class="code-word">justify-self</span>:</p>
+                <ul class="property-value-list">
+                  <li>start</li>
+                  <li>end</li>
+                  <li>center</li>
+                  <li>stretch</li>
+                </ul>
+                <code class="code-box">.item { <br>
+                  justify-self: center;<br>
+                  align-self: center;<br>
+                  }</code>
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">start</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">end</span> on grid.</figcaption>
+                  <div class="gitem-container-box grid-justify-end">
+                    <div class="grid-figure-child grid-justify-self-start">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child ">III</div>
+                    <div class="grid-figure-child">IV</div>
+                    <div class="grid-figure-child">V</div>
+                    <div class="grid-figure-child">VI</div>
+                  </div>
+                </figure>
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...<span class="code-word">align-self</span> <span class="look-at-me-text">start</span> on <span class="look-at-me-text">I</span> when <span class="code-word">align-items</span> set to <span class="look-at-me-text">end</span> on grid.</figcaption>
+                  <div class="gitem-container-box grid-align-end">
+                    <div class="grid-figure-child grid-align-self-start">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child ">III</div>
+                    <div class="grid-figure-child">IV</div>
+                    <div class="grid-figure-child">V</div>
+                    <div class="grid-figure-child">VI</div>
+                  </div>
+                </figure>
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">end</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
+                  <div class="gitem-container-box grid-justify-start">
+                    <div class="grid-figure-child grid-justify-self-end">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child ">III</div>
+                    <div class="grid-figure-child">IV</div>
+                    <div class="grid-figure-child">V</div>
+                    <div class="grid-figure-child">VI</div>
+                  </div>
+                </figure>
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...<span class="code-word">align-self</span> <span class="look-at-me-text">end</span> on <span class="look-at-me-text">I</span> when <span class="code-word">align-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
+                  <div class="gitem-container-box grid-align-start">
+                    <div class="grid-figure-child grid-align-self-end">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child ">III</div>
+                    <div class="grid-figure-child">IV</div>
+                    <div class="grid-figure-child">V</div>
+                    <div class="grid-figure-child">VI</div>
+                  </div>
+                </figure>
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">center</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
+                  <div class="gitem-container-box grid-justify-start">
+                    <div class="grid-figure-child grid-justify-self-center">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child ">III</div>
+                    <div class="grid-figure-child">IV</div>
+                    <div class="grid-figure-child">V</div>
+                    <div class="grid-figure-child">VI</div>
+                  </div>
+                </figure>
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...<span class="code-word">align-self</span> <span class="look-at-me-text">center</span> on <span class="look-at-me-text">I</span> when <span class="code-word">align-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
+                  <div class="gitem-container-box grid-align-start">
+                    <div class="grid-figure-child grid-align-self-center">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child ">III</div>
+                    <div class="grid-figure-child">IV</div>
+                    <div class="grid-figure-child">V</div>
+                    <div class="grid-figure-child">VI</div>
+                  </div>
+                </figure>
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...<span class="code-word">justify-self</span> <span class="look-at-me-text">stretch</span> on <span class="look-at-me-text">I</span> when <span class="code-word">justify-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
+                  <div class="gitem-container-box grid-justify-start">
+                    <div class="grid-figure-child grid-justify-self-stretch">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child ">III</div>
+                    <div class="grid-figure-child">IV</div>
+                    <div class="grid-figure-child">V</div>
+                    <div class="grid-figure-child">VI</div>
+                  </div>
+                </figure>
+                <figure class="grid-figure">
+                  <figcaption>Seeing is believing...<span class="code-word">align-self</span> <span class="look-at-me-text">stretch</span> on <span class="look-at-me-text">I</span> when <span class="code-word">align-items</span> set to <span class="look-at-me-text">start</span> on grid.</figcaption>
+                  <div class="gitem-container-box grid-align-start">
+                    <div class="grid-figure-child grid-align-self-stretch">I</div>
+                    <div class="grid-figure-child">II</div>
+                    <div class="grid-figure-child ">III</div>
+                    <div class="grid-figure-child">IV</div>
+                    <div class="grid-figure-child">V</div>
+                    <div class="grid-figure-child">VI</div>
+                  </div>
+                </figure>
+              </div>
+              <!--Grid Item - grid-place-self property-->
+              <div id="gitem-grid-place-self" class="section-subsection-content-info">
+                <h5 class="sub-heading-text">Place Self</h5>
+                <p>You'll never have guessed this but <span class="code-word">place-self</span> is the shorthand for <span class="code-word">justify-self</span> and <span class="code-word">align-self</span>!</p>
+                <p>So we can write...</p>
+                <code class="code-box">.item { <br>
+                  align-self: center;<br>
+                  justify-self: start;<br>
+                  }</code>
+                <p>You can use...</p>
+                <code class="code-box">.item { <br>
+                  place-self: center start;<br>
+                  }</code>
+                <p>The first value is for <span class="code-word">align-self</span> and the second for <span class="code-word">justify-self</span>...although if you set only one value both will use it <span class="code-word">place-self: center;</span></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
   </main>
   <!--footer-->
