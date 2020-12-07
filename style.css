@@ -102,6 +102,7 @@ li {
 
 /*example code snippet to stand out */
 .code-box {
+  width: 100%;
   display: inline-block;
   font-family: var(--code-font);
   background-color: var(--light-highlight-colour, burlywood);
@@ -744,6 +745,10 @@ Responsiveness
 
 /*Media queries for larger monitor views*/
 @media only screen and (min-width: 500px) {
+  .code-box {
+    width: auto;
+  }
+
   /*figcaption and code example box change to side by side view*/
   .grid-figure {
     display: flex;
