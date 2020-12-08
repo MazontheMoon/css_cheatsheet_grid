@@ -716,6 +716,12 @@ footer {
   margin-bottom: 1rem;
 }
 
+#all-about-me p a {
+  font-family: var(--header-text-font);
+  color: var(--background-main-light-colour, seagreen);
+  text-shadow: 1px 1px 2px black;
+  font-size: 2rem;
+}
 /*==========
 Link styles
 ===========*/
@@ -737,6 +743,11 @@ The little touches
   right: 0;
   font-size: 2rem;
   padding: 0.4rem;
+}
+
+.backtotop a {
+  color: var(--background-main-light-colour, seagreen);
+  text-shadow: 1px 1px 2px black;
 }
 
 /*=============
@@ -768,7 +779,7 @@ Responsiveness
 
 @media only screen and (min-width: 1024px) {
   body {
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 20% 80%;
     grid-template-areas:
       "header header"
       "nav content"
