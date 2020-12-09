@@ -721,7 +721,30 @@ footer {
   color: var(--background-main-light-colour, seagreen);
   text-shadow: 1px 1px 2px black;
   font-size: 2rem;
+  margin: 1rem;
+  padding: 0.5rem;
 }
+
+#all-about-me a:link {
+  color: var(--background-main-light-colour, seagreen);
+}
+
+#all-about-me a:visited {
+  color: rgba(100, 100, 100, 0.5);
+}
+
+#all-about-me a:focus {
+  color: rgba(245, 245, 245, 0.8);
+}
+
+#all-about-me a:hover {
+  color: rgba(245, 245, 245, 0.8);
+}
+
+#all-about-me a:active {
+  color: rgba(245, 245, 245, 0.8);
+}
+
 /*==========
 Link styles
 ===========*/
@@ -801,10 +824,7 @@ Responsiveness
 Accessibility
 ===============*/
 
-/*Remove animations or visual affects based on userbrowser perference*/
-
-@media (prefers-reduced-motion) {
-}
+/*Reset to user browser preference*/
 
 @media (prefers-reduced-motion: reduce) {
   scroll-behavior: auto;
